@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="199.48" height="105.5" viewBox="0 0 199.48 105.5">
+  <g id="Group_11" data-name="Group 11" transform="translate(-223.5 -184)">
+    <g id="Group_8" data-name="Group 8" transform="translate(-120 140)">
+      <g id="Group_4" data-name="Group 4" transform="translate(-1)">
+        <g id="Group_3" data-name="Group 3" transform="translate(332 69)">
+          <g id="logo" transform="translate(29)">
+            <text id="ss" transform="translate(40)" fill="#575757" stroke="#707070" stroke-width="0.5" font-size="35" font-family="MuseoModerno"><tspan x="0" y="40" xml:space="preserve">nkson                      </tspan></text>
+            <g id="Group_1" data-name="Group 1" transform="translate(40 8.614) rotate(90)">
+              <path id="Path_4" data-name="Path 4" d="M16.358,30.386H0L16.358,0l10.6,19.7,5.755,10.69H40L24.665,2.967h0" transform="translate(0 40) rotate(-90)" fill="none" stroke="#000" stroke-width="3"/>
+              <path id="Path_5" data-name="Path 5" d="M8.423,15.757H0L8.423,0l4.129,7.959.772,1.668,3.121,6.131Z" transform="translate(10.165 31.839) rotate(-90)" fill="#9e9d9d"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text id="blogs" transform="translate(439 133)" fill="#575757" stroke="#707070" stroke-width="0.5" font-size="25" font-family="MuseoModerno"><tspan x="0" y="0">blogs</tspan></text>
+      <path id="Path_8" data-name="Path 8" d="M112,0" transform="translate(392 112)" fill="none" stroke="#707070" stroke-width="1"/>
+      <path id="Path_9" data-name="Path 9" d="M394,90" transform="translate(-2 -10)" fill="none" stroke="#707070" stroke-width="1"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="10" cy="10" r="10" transform="translate(462 90)" fill="#9e9d9d"/>
+    </g>
+    <path id="Path_17" data-name="Path 17" d="M394,161l-168,1v88H418V169" transform="translate(-2 39)" fill="none" stroke="#090808" stroke-width="1"/>
+    <g id="Group_10" data-name="Group 10" transform="translate(12.363 38.887)">
+      <path id="Path_10" data-name="Path 10" d="M1.6,5.747s1.615,1.235,3.615-.765L10.2,0,0,1.308,1.6,5.747" transform="matrix(-0.883, 0.469, -0.469, -0.883, 379.882, 184.654)" fill="#070707"/>
+      <path id="Path_12" data-name="Path 12" d="M0,1.179,3.855,4.907,4.969,3.831,1.008,0Z" transform="translate(392.156 159.438) rotate(-3)" fill="#090808"/>
+      <path id="Path_14" data-name="Path 14" d="M379,159.667l2.269,1.577,1.481,1.673,16.333-17.333L395,142Z" transform="translate(-3 19.225)" fill="#0d0d0d"/>
+      <path id="Path_15" data-name="Path 15" d="M0,12.044,4.417,16.46,16.273,4.6s.124-.383.3-1.232c.155-.694.349-2.239-.3-2.911-1.006-1.036-4.023,0-4.023,0L0,12.71" transform="translate(392.331 145.988) rotate(-3)" fill="#0f0e0e"/>
+      <path id="Path_16" data-name="Path 16" d="M9.231,0l1.752,1.752L0,12.735" transform="matrix(0.999, -0.035, 0.035, 0.999, 398.477, 150.782)" fill="none" stroke="#707070" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Spartan&family=Zen+Old+Mincho&display=swap");
+
+p {
+  font-family: "Spartan", "Zen Old Mincho", serif;
+  font-size: 0.8em;
+}
+h1 {
+  font-family: "Spartan", "Zen Old Mincho", serif;
+}
+img {
+  max-width: 10%;
+}
+body {
+  max-width: 1000px;
+}
