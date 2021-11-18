@@ -3,7 +3,7 @@ const viewMoreBtn = document.querySelector(".view-more");
 
 
 async function getBlogs() {
-    const perPageUrl = baseUrl + `posts/?per_page=10&_embe`;
+    const perPageUrl = baseUrl + `posts/?per_page=10&_embed`;
 
     try {
         const response = await fetch(perPageUrl);

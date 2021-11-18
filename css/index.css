@@ -1,10 +1,44 @@
-/* home page */
+.latest-home-sec,
+.introduction,
+.testinomies,
+.popular-blogs {
+  margin: var(--section-margin);
+}
+.popular-blogs {
+  max-width: 1000px;
+}
+.popular-blogs h2 {
+  grid-column: 1/-1;
+  border-bottom: 1px solid var(--darkblue-color);
+}
+.popular-blogs img {
+  max-width: 100%;
+}
 .latest-home-sec {
   display: grid;
   max-width: 1000px;
   gap: 10px;
 }
+.introduction {
+  max-width: 1000px;
+}
+.testinomies {
+  max-width: 1000px;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: var(--padding-global);
 
+  align-items: center;
+}
+.testinomies h2 {
+  grid-column: 1/-1;
+  text-decoration: underline;
+}
+.testinomies img {
+  max-width: 70%;
+  border-radius: 50%;
+}
 .carousel-btns-container {
   border-bottom: 1px solid var(--darkblue-color);
   margin-bottom: 20px;
@@ -14,12 +48,12 @@
   justify-content: space-between;
   transition: 1s ease;
 }
+
 .carousel-container {
   gap: 20px;
   flex-wrap: nowrap;
-  /* display: grid;
+  display: grid;
   grid-template-columns: repeat(12, 230px);
-  overflow-x: hidden; */
   overflow-x: auto;
   transition: 1s linear;
   padding: 8px;
@@ -27,22 +61,13 @@
   cursor: pointer;
 }
 
-/* width */
 .carousel-container::-webkit-scrollbar {
-  height: 6px;
-  padding: var(--padding-global);
-}
-.carousel-container::-webkit-scrollbar-track {
-  background: rgba(var(--primary-rgba));
+  height: 1px;
 }
 
-/* Handle */
 .carousel-container::-webkit-scrollbar-thumb {
   background: var(--button-color);
-  border-radius: 8px;
 }
-
-/* Handle on hover */
 
 .carousel-container img {
   max-width: 100%;
@@ -85,7 +110,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 1.4em;
-  margin-right: 20px;
+  margin-right: 10px;
+  padding: 10px;
   background: none;
   transition: 1s transform;
 }

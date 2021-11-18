@@ -7,7 +7,6 @@ const dots = document.querySelectorAll(".dot");
 
 
 //async function to fetch posts 
-
 const carouselContainer = document.querySelector(".carousel-container");
 
 async function getPosts(url) {
@@ -40,6 +39,25 @@ function creatHtml(result) {
          `;
    
 }
+//get popular posts 
+const popularBlogContainer = document.querySelector(".popular-blogs");
+
+async function getPopularBlogs() {
+    const popularUrl = baseUrl + "posts/?per_page=2&_embed";
+    const response = await fetch(popularUrl);
+    const results = await response.json();
+
+    results.forEach(result => {
+         popularBlogContainer.innerHTML += `
+         <a href= "../blog-specific-page.html?id=${result.id}" class="">
+            <img src="${result.jetpack_featured_media_url}" alt="${result}" />
+            <h3>${result.title.rendered}</h3>
+        </a>`;
+
+    })
+   
+    }
+getPopularBlogs() 
 
 // eventlistener for buttons
 leftBtn.addEventListener("click", slideLeft);
@@ -49,14 +67,14 @@ rightBtn.addEventListener("click", slideRight);
 function slideLeft() {
     carouselContainer.scrollBy({
         top:0,
-        left:-250,
+        left:-1000,
         behavior: 'smooth'
      });
 }
 function slideRight() {
     carouselContainer.scrollBy({
         top:0,
-        left:250,
+        left:1000,
         behavior: 'smooth'
      });
 }

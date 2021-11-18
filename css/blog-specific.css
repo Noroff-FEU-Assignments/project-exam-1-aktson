@@ -38,3 +38,7 @@
 .received-image {
   cursor: pointer;
 }
+#comment-input,
+#name {
+  border: 1px solid black;
+}

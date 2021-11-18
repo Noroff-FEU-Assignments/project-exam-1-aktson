@@ -21,7 +21,7 @@ async function getBlog() {
         const dateModiefied = new Date(result.modified).toDateString();
         const author = result._embedded.author[0].name;
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
-console.log(datePublished)
+
         title.innerText = `MyBlog | ${result.title.rendered} | ${author}`
     
         resultContainer.innerHTML =
@@ -58,3 +58,37 @@ console.log(datePublished)
 getBlog();
 
 
+//to post comments
+const commentInput = document.querySelector("#comment-input");
+const nameInput = document.querySelector("#name");
+const form = document.querySelector(".comment");
+
+
+form.addEventListener("submit", postComments);
+
+function postComments(e) {
+    e.preventDefault();
+    postCommentsApiCall() 
+
+}
+async function postCommentsApiCall() {
+
+    const commentUrl = baseUrl + `comments?post=${blogId}`;
+
+    const response = await fetch(commentUrl, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzNzEwMjYxNSwibmJmIjoxNjM3MTAyNjE1LCJleHAiOjE2Mzc3MDc0MTUsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.6X7bABakxn4eh4x52MannK9MZOqMCR9C7FZvt91CwKM",
+        },
+        body:JSON.stringify ({
+            "name": nameInput.value,
+            "content": commentInput.value,
+            "status": "publish",
+        })     
+    });
+    
+    const results = await response.json();
+
+    console.log(results)
+}
