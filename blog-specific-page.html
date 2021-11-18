@@ -4,33 +4,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/blog-specific.css" />
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>My Blog | ANKSON</title>
   </head>
   <body>
+    <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
     <header class="flex">
+      <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
+      <!-- Site logo -->
       <div class="flex nav-logo-container">
         <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+        <!-- navigation -->
         <nav>
           <ul>
-            <a href="index.html"><li>Home</li></a>
-            <a href="about.html"><li>About</li></a>
-            <a href="blog.html"><li>Blog</li></a>
-            <a href="contact.html"><li>Contact</li></a>
+            <a href="index.html" class="navbar"><li>Home</li></a>
+            <a href="about.html" class="navbar"><li>About</li></a>
+            <a href="blog.html" class="navbar"><li>Blog</li></a>
+            <a href="contact.html" class="navbar"><li>Contact</li></a>
           </ul>
         </nav>
       </div>
+      <!-- search container and search result container -->
       <div class="search-container">
         <label for="search"><i class="fas fa-search"></i></label>
         <input type="text" name="search" id="search" placeholder="search" />
+        <section class="search-result-container hidden"></section>
       </div>
+      <!-- Error container to show user error -->
+      <p class="msg-container hidden"></p>
     </header>
-    <main>
-      <h1>This is my heading</h1>
-      <h2>this is my sub heading</h2>
-
-      <p>this is my sub heading, another one bites the dust I am Ankit and i live in norway from 2011 i live in norheimsund</p>
+    <main class="blog-specific">
+      <section class="flex blog-result"></section>
+      <div class="img-modal"></div>
     </main>
     <footer class="flex">
       &copy;2021 Ankson, All rights reserved
@@ -50,5 +57,6 @@
       <span></span>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/blog-specific.js"></script>
   </body>
 </html>

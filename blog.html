@@ -4,14 +4,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/blog.css" />
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>Blog | ANKSON</title>
   </head>
   <body>
+    <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
     <header class="flex">
+      <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
+      <!-- Site logo -->
       <div class="flex nav-logo-container">
         <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+        <!-- navigation -->
         <nav>
           <ul>
             <a href="index.html" class="navbar"><li>Home</li></a>
@@ -21,41 +26,24 @@
           </ul>
         </nav>
       </div>
+      <!-- search container and search result container -->
       <div class="search-container">
         <label for="search"><i class="fas fa-search"></i></label>
         <input type="text" name="search" id="search" placeholder="search" />
+        <section class="search-result-container hidden"></section>
       </div>
+      <!-- Error container to show user error -->
+      <p class="msg-container hidden"></p>
     </header>
-    <main class="blogs-main flex">
+    <!-- main  -->
+    <main class="flex blogs-main">
       <h1>Explore from our latest blogs</h1>
-      <section class="blogs grid-three-columns">
-        <div>
-          <img src="images/logo (2).svg" alt="" />
-          <h2>lorem 1</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, dolor? Ipsam quae obcaecati facere a asperiores! Tenetur itaque,
-            facere enim nulla dicta ducimus fugit possimus, dolore earum praesentium totam tempore?
-          </p>
-        </div>
-        <div>
-          <img src="images/logo (2).svg" alt="" />
-          <h2>lorem 2</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio provident nesciunt unde esse nobis veniam asperiores possimus consectetur
-            perferendis architecto sapiente ab dolor, nam tempore. Molestiae corporis exercitationem accusamus ratione.
-          </p>
-        </div>
-        <div>
-          <img src="images/logo (2).svg" alt="" />
-          <h2>lorem 3</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi fugiat distinctio quaerat a obcaecati possimus blanditiis similique atque
-            nulla commodi quod cum, expedita nisi repellendus in provident. Odit, reiciendis molestiae?
-          </p>
-        </div>
-      </section>
-      <button class="cta">view more</button>
+      <!-- section where all the blogs will show  -->
+      <section class="blogs"></section>
+      <!-- button to click to show 10 more blogs -->
+      <button class="cta view-more">view more</button>
     </main>
+    <!-- footer -->
     <footer class="flex">
       &copy;2021 Ankson, All rights reserved
       <div class="subscribe-container flex">
@@ -68,11 +56,13 @@
         <i class="fab fa-twitter"></i>
       </div>
     </footer>
+    <!-- loader on page load -->
     <div class="loader">
       <span></span>
       <span></span>
       <span></span>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/blog.js"></script>
   </body>
 </html>

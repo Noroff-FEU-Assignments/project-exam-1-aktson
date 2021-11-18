@@ -3,7 +3,7 @@ const name = document.querySelector("#name");
 const email = document.querySelector("#email");
 const subject = document.querySelector("#subject");
 const message = document.querySelector("#message");
-const resultModalContainer = document.querySelector(".result-modal");
+
 
 
 
@@ -27,9 +27,8 @@ function checkForm(e) {
     checkInputValue(checkLength(message.value, 25), message, messageSpan, `message must be atleast 25 characters`);
 
     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
-        
-        resultModalContainer.classList.remove("hidden");
-        resultModalContainer.innerHTML = '<p >✔️Your message was sent successfully</p>';
+       
+        displayMsg("Your message was sent successfully", "success-msg")
         form.reset();
     }
 }

@@ -4,14 +4,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>Home | ANKSON</title>
   </head>
   <body>
+    <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
     <header class="flex">
+      <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
+      <!-- Site logo -->
       <div class="flex nav-logo-container">
         <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+        <!-- navigation -->
         <nav>
           <ul>
             <a href="index.html" class="navbar active"><li>Home</li></a>
@@ -21,10 +27,14 @@
           </ul>
         </nav>
       </div>
+      <!-- search container and search result container -->
       <div class="search-container">
         <label for="search"><i class="fas fa-search"></i></label>
-        <input type="text" name="search" id="search" placeholder="search" />
+        <input type="text" name="search" id="search" placeholder="search " />
+        <section class="search-result-container hidden"></section>
       </div>
+      <!-- Error container to show user error -->
+      <p class="msg-container hidden"></p>
     </header>
     <main>
       <h1>This is my heading</h1>
@@ -33,80 +43,14 @@
       <section class="latest-home-sec">
         <div class="flex carousel-btns-container">
           <h2>Latest posts</h2>
-          <div >
+          <div>
             <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
             <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
-
-        <ul class="flex carousel-container">
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 1</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 2</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 3</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 4</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 5</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 6</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 7</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 8</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 9</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 10</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 11</h3>
-            <p>September 10, 2021</p>
-          </li>
-          <li class="blog">
-            <img src="images/logo (2).svg" alt="" />
-            <h3>lorem 12</h3>
-            <p>September 10, 2021</p>
-          </li>
-        </div>
-        </section>
-      <div class="dots flex">
-        <div class="dot active-dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
+        <!-- carousel container -->
+        <div class="flex carousel-container"></div>
+      </section>
     </main>
     <footer class="flex">
       <p>&copy;2021 Designed and developed by Ankson</p>
@@ -115,9 +59,9 @@
         <button class="cta">subscribe</button>
       </div>
       <div class="social-icons">
-      <span> <i class="fab fa-facebook"></i></span> 
-      <span> <i class="fab fa-instagram"></i></span> 
-      <span>  <i class="fab fa-twitter"></i></span> 
+        <span><i class="fab fa-facebook"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-twitter"></i></span>
       </div>
     </footer>
 
@@ -125,8 +69,8 @@
       <span></span>
       <span></span>
       <span></span>
-      </div>
-    <script src="js/index.js"></script>
+    </div>
     <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

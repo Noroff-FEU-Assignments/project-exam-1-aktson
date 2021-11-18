@@ -1,0 +1,40 @@
+.blog-specific {
+  position: relative;
+  justify-self: normal;
+}
+* > img {
+  max-width: 100%;
+}
+
+.blog-result {
+  max-width: 1000px;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto;
+  align-items: flex-start;
+}
+.blog-result img {
+  max-width: 100%;
+}
+
+.img-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 10;
+  display: none;
+  transition: 1s ease;
+}
+.img-modal img {
+  max-width: 70%;
+  transition: 1s ease;
+}
+.received-image {
+  cursor: pointer;
+}

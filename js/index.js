@@ -1,57 +1,62 @@
 // carousel home section
 const leftBtn = document.querySelector(".left-btn");
 const rightBtn = document.querySelector(".right-btn");
-const blogs = document.querySelectorAll(".blog");
+
 const carousel = document.querySelector(".carousel-container");
 const dots = document.querySelectorAll(".dot");
 
+
+//async function to fetch posts 
+
+const carouselContainer = document.querySelector(".carousel-container");
+
+async function getPosts(url) {
+    try {
+        const response = await fetch(url);
+        const results = await response.json();
+        
+        results.forEach(result => {
+            creatHtml(result)
+        })
+    } 
+    catch (error) {
+        displayMsg(error, "error-msg")
+            
+    }
+}
+getPosts(postsEmbedUrl)
+
+//function to create html and then call it inside async function
+function creatHtml(result) {
+    
+    const date = new Date(result.date).toDateString();
+    
+    carouselContainer.innerHTML +=
+        `<a href= "../blog-specific-page.html?id=${result.id}" class="blog">
+            <img src="${result.jetpack_featured_media_url}" alt="${result}" />
+            <h3>${result.title.rendered}</h3>
+            <p> ${date}</p>
+        </a>
+         `;
+   
+}
 
 // eventlistener for buttons
 leftBtn.addEventListener("click", slideLeft);
 rightBtn.addEventListener("click", slideRight);
 
-let count = 0;
 
 function slideLeft() {
-    count--;
-    blogs.forEach(blog => {
-            if(count === 0) {
-            blog.style.transform = "translateX(0px)";
-            dots[0].classList.add("active-dot");
-            dots[1].classList.remove("active-dot");
-            }
-        if(count === 1){
-            blog.style.transform = "translateX(-1010px)";
-            dots[2].classList.remove("active-dot");
-            dots[1].classList.add("active-dot");
-            dots[0].classList.remove("active-dot");
-            }
-        if (count === 2) {
-                blog.style.transform = "translateX(-2010px)";
-                dots[1].classList.remove("active-dot");
-                dots[2].classList.add("active-dot");
-        }
-        if (count < 0) { count = 0 };
-    })
+    carouselContainer.scrollBy({
+        top:0,
+        left:-250,
+        behavior: 'smooth'
+     });
 }
-
 function slideRight() {
-    count++;
-    blogs.forEach(blog => {
-            if(count === 0) {
-            blog.style.transform = "translateX(0px)";
-           
-            }
-        if(count === 1){
-            blog.style.transform = "translateX(-1010px)";
-            dots[1].classList.add("active-dot");
-            dots[0].classList.remove("active-dot");
-            }
-        if (count === 2) {
-                blog.style.transform = "translateX(-2020px)";
-                dots[1].classList.remove("active-dot");
-                dots[2].classList.add("active-dot");
-        }
-        if (count > 2) { count = 2 };
-    })
+    carouselContainer.scrollBy({
+        top:0,
+        left:250,
+        behavior: 'smooth'
+     });
 }

@@ -8,10 +8,14 @@
     <title>About | ANKSON</title>
   </head>
   <body>
+    <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
     <header class="flex">
+      <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
+      <!-- Site logo -->
       <div class="flex nav-logo-container">
         <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+        <!-- navigation -->
         <nav>
           <ul>
             <a href="index.html" class="navbar"><li>Home</li></a>
@@ -21,10 +25,14 @@
           </ul>
         </nav>
       </div>
+      <!-- search container and search result container -->
       <div class="search-container">
         <label for="search"><i class="fas fa-search"></i></label>
         <input type="text" name="search" id="search" placeholder="search" />
+        <section class="search-result-container hidden"></section>
       </div>
+      <!-- Error container to show user error -->
+      <p class="msg-container hidden"></p>
     </header>
     <main>
       <h1>This is my heading</h1>
