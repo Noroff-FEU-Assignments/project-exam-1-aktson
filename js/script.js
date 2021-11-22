@@ -1,20 +1,24 @@
 // baseurl
 const baseUrl = `https://ankson.no/ankson-blog/wp-json/wp/v2/`;
 const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?_embed";
+const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzNzU3MDc2OSwibmJmIjoxNjM3NTcwNzY5LCJleHAiOjE2MzgxNzU1NjksImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.6kUomlZ_z6XcHccOXuK6upZjZJzkZEkYqJI5PS-NQZs";
 
 //hamburger onclick event 
 const hamburger = document.querySelector(".hamburger");
 const navigation = document.querySelector("nav");
-
+const navigationContainer = document.querySelector(".nav-search-container");
 
 hamburger.onclick = function() {
 
-    hamburger.classList.toggle("rotate");
-
-    if(navigation.style.display === "block") {
-        return navigation.style.display = "none"
+    if (navigationContainer.style.transform === "translateY(-100%)") {
+        navigationContainer.style.transform = "translateX(0px)";
+        hamburger.style.transform = "rotate(90deg)";
     } 
-        return navigation.style.display = "block";
+    else {
+        navigationContainer.style.transform = "translateY(-100%)";
+        hamburger.style.transform = "rotate(0deg)"
+    } 
+
 }
 
 
@@ -49,7 +53,7 @@ async function getSearchResult () {
                 searchResultContainer.classList.remove("hidden"); 
                 searchResultContainer.innerHTML +=`
                 <a href= "../blog-specific-page.html?id=${result.id}" class="search-content">
-               <ul> <li>${result.title.rendered}</li></ul>
+               <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
                 </a>`
         }     
     });   
@@ -73,18 +77,27 @@ document.onreadystatechange = function () {
 }
 
 // global error container to show errors
-const errorContainer = document.querySelector(".msg-container");
+const msgContainer = document.querySelector(".msg-container");
 
 // function to shor error on error container
 function displayMsg (msg, cls) {
-    errorContainer.classList.remove("hidden");
+    msgContainer.classList.remove("hidden");
     if(!msg) {
-        errorContainer.innerHTML = `<p class ="${cls}"> Opps..something went wrong please try something else</p>`
+        msgContainer.innerHTML = `<p class ="${cls}"> Opps..something went wrong please try something else</p>`
     } else {
-        errorContainer.innerHTML = `<p class ="${cls}"> ${msg}</p>`
+        msgContainer.innerHTML = `<p class ="${cls}"> ${msg}</p>`
     }
 }
 
+// after user succesfully sends data funtion under will remove message after 3 seconds that user can  continue to navigate or read
+function removeSuccessMsg () {
+        setTimeout(() => {
+        msgContainer.classList.add("hidden");
+    }, 5000)   
+}
+
+
+// button to in footer take user to top of the page
 const toTopBtn = document.querySelector(".to-top-btn");
 
 toTopBtn.onclick = function () {
@@ -95,4 +108,29 @@ toTopBtn.onclick = function () {
         behavior: "smooth"
 
     })
+}
+
+// check for valid email
+function checkValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+//get email from subscribe input and check input field
+const subscribeInput = document.querySelector(".subscribe");
+const subscribeForm = document.querySelector(".subscribe-form");
+
+subscribeForm.addEventListener("submit", getSubscribeEmail)
+
+function getSubscribeEmail (e) {
+    e.preventDefault();
+  
+    if(checkValidEmail(subscribeInput.value)) {
+        displayMsg ("Thank you for subscribing with us!!!", "success-msg");
+        subscribeForm.reset();
+        removeSuccessMsg();
+    }
+    else {
+        displayMsg("Please enter valid e-mail", "error-msg");  
+    } 
 }

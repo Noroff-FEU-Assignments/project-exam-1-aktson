@@ -36,27 +36,23 @@ function creatHtml(result) {
             <h3>${result.title.rendered}</h3>
             <p> ${date}</p>
         </a>
-         `;
-   
+        `;   
 }
 //get popular posts 
 const popularBlogContainer = document.querySelector(".popular-blogs");
 
 async function getPopularBlogs() {
-    const popularUrl = baseUrl + "posts/?per_page=2&_embed";
+    const popularUrl = baseUrl + "posts/?per_page=5&_embed";
     const response = await fetch(popularUrl);
     const results = await response.json();
 
     results.forEach(result => {
          popularBlogContainer.innerHTML += `
-         <a href= "../blog-specific-page.html?id=${result.id}" class="">
-            <img src="${result.jetpack_featured_media_url}" alt="${result}" />
-            <h3>${result.title.rendered}</h3>
+         <a href= "../blog-specific-page.html?id=${result.id}" class="aside-content">
+       <h4>${result.title.rendered}</h4>
         </a>`;
-
-    })
-   
-    }
+    })  
+}
 getPopularBlogs() 
 
 // eventlistener for buttons

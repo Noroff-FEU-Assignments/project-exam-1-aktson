@@ -1,34 +1,54 @@
-.latest-home-sec,
-.introduction,
+/* trying to get wrapper on top */
+body {
+  display: grid;
+  overflow-x: hidden;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "intro-sec intro-sec intro-sec intro-sec"
+    ". main main aside"
+    "footer footer footer footer";
+}
+.intro-sec {
+  grid-area: intro-sec;
+}
+
+.latest-post-sec,
+/* .introduction, */
 .testinomies,
 .popular-blogs {
-  margin: var(--section-margin);
-}
-.popular-blogs {
+  margin: 200px auto;
   max-width: 1000px;
+  justify-content: center;
 }
-.popular-blogs h2 {
-  grid-column: 1/-1;
-  border-bottom: 1px solid var(--darkblue-color);
-}
-.popular-blogs img {
-  max-width: 100%;
-}
-.latest-home-sec {
-  display: grid;
-  max-width: 1000px;
-  gap: 10px;
-}
+
+/* section introduction  */
 .introduction {
-  max-width: 1000px;
+  height: 60vh;
+  color: white;
+  padding: var(--padding-global);
+  margin-top: 70px;
+  background-color: var(--darkblue-color);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
+
+.introduction-text {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--padding-global);
+}
+
+/* section testinomies */
 .testinomies {
   max-width: 1000px;
   justify-content: center;
   text-align: center;
   gap: 20px;
   padding: var(--padding-global);
-
   align-items: center;
 }
 .testinomies h2 {
@@ -39,6 +59,17 @@
   max-width: 70%;
   border-radius: 50%;
 }
+/* aside popular blogs  */
+.popular-blogs h3 {
+  border-bottom: 1px solid var(--darkblue-color);
+}
+
+/* section latest posts */
+.latest-post-sec {
+  display: grid;
+  gap: 10px;
+}
+
 .carousel-btns-container {
   border-bottom: 1px solid var(--darkblue-color);
   margin-bottom: 20px;
@@ -52,8 +83,8 @@
 .carousel-container {
   gap: 20px;
   flex-wrap: nowrap;
-  display: grid;
-  grid-template-columns: repeat(12, 230px);
+  /* display: grid;
+  grid-template-columns: repeat(12, 230px); */
   overflow-x: auto;
   transition: 1s linear;
   padding: 8px;

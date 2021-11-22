@@ -4,18 +4,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>Contact | ANKSON</title>
   </head>
   <body>
     <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
-    <header>
+    <header class="flex">
       <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
       <!-- Site logo -->
-      <div class="flex nav-logo-container">
-        <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
-
+      <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+      <div class="flex nav-search-container">
         <!-- navigation -->
         <nav>
           <ul>
@@ -25,13 +25,14 @@
             <a href="contact.html" class="navbar active"><li>Contact</li></a>
           </ul>
         </nav>
+        <!-- search container and search result container -->
+        <div class="search-container">
+          <label for="search"><i class="fas fa-search"></i></label>
+          <input type="text" name="search" id="search" placeholder="search " />
+          <section class="search-result-container hidden"></section>
+        </div>
       </div>
-      <!-- search container and search result container -->
-      <div class="search-container">
-        <label for="search"><i class="fas fa-search"></i></label>
-        <input type="text" name="search" id="search" placeholder="search" />
-        <section class="search-result-container hidden"></section>
-      </div>
+
       <!-- Error container to show user error -->
       <p class="msg-container hidden"></p>
     </header>
@@ -62,16 +63,32 @@
         </div>
       </section>
     </main>
+    <!-- aside most popular blogs  -->
+    <!-- <aside>
+      <h2>Most popular stories</h2>
+    </aside> -->
+    <!-- footer -->
     <footer class="flex">
-      <div class="subscribe-container flex">
-        <input type="email" name="subscribe" class="subscribe" placeholder="enter your e-mail address" />
-        <button class="cta">subscribe</button>
-      </div>
+      <form class="subscribe-form">
+        <div class="subscribe-container flex">
+          <input type="email" name="subscribe" class="subscribe" placeholder="enter your e-mail address" />
+          <input type="submit" class="cta" value="subscribe" />
+        </div>
+      </form>
+      <!-- social media icons -->
       <div class="social-icons">
-        <p>Follow us on</p>
-        <span><i class="fab fa-facebook"></i></span>
-        <span><i class="fab fa-instagram"></i></span>
-        <span><i class="fab fa-twitter"></i></span>
+        <a href="https://www.facebook.com/" target="_blank">
+          <span><i class="fab fa-facebook"></i></span>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <span><i class="fab fa-instagram"></i></span>
+        </a>
+        <a href="https://twitter.com/?lang=en" target="_blank">
+          <span><i class="fab fa-twitter"></i></span>
+        </a>
+        <a href="mailto:akt_soni@yahoo.co.in">
+          <span><i class="fas fa-envelope"></i></span>
+        </a>
       </div>
       <p class="copyright">&copy;2021 Designed and developed by Ankson</p>
       <div class="to-top-btn"><i class="fas fa-arrow-circle-up"></i></div>

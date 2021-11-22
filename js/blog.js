@@ -36,7 +36,7 @@ function creatHtml (result) {
                 <p class="date">${date}</p>
                 <h2>${result.title.rendered}</h2>
                 <div class ="line-height"><p> ${result.content.rendered}</p></div>
-                <button class="cta">Read more</button>
+                <p class ="read-more">read more <i class="fas fa-arrow-right"></i></p>
             </div>
         </a>`
 }

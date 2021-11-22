@@ -28,7 +28,7 @@ async function getBlog() {
             `<h1>${result.title.rendered}</h1>
            
             <img src="${image}" alt="${altText}" class = "received-image" /> 
-            <p class= "date">Author: <b>${author.toUpperCase()}</b> Published: <b>${datePublished}</b></p>
+            <p class= "date"><i class="fas fa-user-edit"></i>: <b>${author.toUpperCase()} </br></b> <i class="fas fa-calendar-alt"></i>: <b>${datePublished}</b></p>
             <p> ${result.content.rendered}</p>
             <p class= "date"> Last modified: <b>${dateModiefied}</b></p>
            `;
@@ -61,7 +61,7 @@ getBlog();
 //to post comments
 const commentInput = document.querySelector("#comment-input");
 const nameInput = document.querySelector("#name");
-const form = document.querySelector(".comment");
+const form = document.querySelector(".comment-form");
 
 
 form.addEventListener("submit", postComments);
@@ -71,24 +71,70 @@ function postComments(e) {
     postCommentsApiCall() 
 
 }
+
+const commentUrl = baseUrl + `comments?post=${blogId}`;
+
 async function postCommentsApiCall() {
-
-    const commentUrl = baseUrl + `comments?post=${blogId}`;
-
-    const response = await fetch(commentUrl, {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzNzEwMjYxNSwibmJmIjoxNjM3MTAyNjE1LCJleHAiOjE2Mzc3MDc0MTUsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.6X7bABakxn4eh4x52MannK9MZOqMCR9C7FZvt91CwKM",
-        },
-        body:JSON.stringify ({
-            "name": nameInput.value,
-            "content": commentInput.value,
-            "status": "publish",
-        })     
-    });
     
+    if (!nameInput.value && !commentInput.value) {
+        displayMsg("Please enter all fields", "error-msg");
+    }
+
+    else if (nameInput.value && commentInput.value) {
+        try {
+            const response = await fetch (commentUrl, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization":`Bearer${jwtApiToken}`,
+                },
+                body:JSON.stringify ({
+                
+                    "author_name":  nameInput.value,
+                    "content": commentInput.value,
+                    "status": "publish",
+                })     
+            });
+        
+            const results = await response.json();
+         
+            displayMsg("Your comment successfully posted!!", "success-msg");
+            form.reset();
+            removeSuccessMsg();
+        
+            console.log(results)
+        }
+        catch(error) {
+            displayMsg("", "error-msg")
+            console.log(error)
+        }      
+    }   
+}
+// get comments and show recent on page
+
+const recentComntContainer = document.querySelector(".recent-comments")
+async function getComments () {
+
+    const response = await fetch(commentUrl);
     const results = await response.json();
 
-    console.log(results)
+  
+
+    console.log(results);
+    let count = 10;
+    for (let i = 0; i <= count; i++) {
+        let date = new Date(results[i].date).toLocaleString();
+
+        recentComntContainer.innerHTML += ` 
+            <div class="flex comment-header">
+             <span><i class="fas fa-user-circle"></i></span>
+             <div>
+                 <p>${results[i].author_name}</p>
+                 <p>${date}</p>
+             </div>
+         </div>
+         <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
+    }
 }
+
+getComments();

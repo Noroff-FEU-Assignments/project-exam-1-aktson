@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/blog-specific.css" />
+    <link rel="stylesheet" href="css/media.css" />
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>My Blog | ANKSON</title>
   </head>
@@ -14,8 +15,8 @@
       <!-- hamburger bars displays for smaller screen -->
       <div class="hamburger"><i class="fa fa-bars"></i></div>
       <!-- Site logo -->
-      <div class="flex nav-logo-container">
-        <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+      <a href="index.html"><img src="images/logo.svg" alt="logo" id="logo" /></a>
+      <div class="flex nav-search-container">
         <!-- navigation -->
         <nav>
           <ul>
@@ -25,41 +26,71 @@
             <a href="contact.html" class="navbar"><li>Contact</li></a>
           </ul>
         </nav>
+        <!-- search container and search result container -->
+        <div class="search-container">
+          <label for="search"><i class="fas fa-search"></i></label>
+          <input type="text" name="search" id="search" placeholder="search " />
+          <section class="search-result-container hidden"></section>
+        </div>
       </div>
-      <!-- search container and search result container -->
-      <div class="search-container">
-        <label for="search"><i class="fas fa-search"></i></label>
-        <input type="text" name="search" id="search" placeholder="search" />
-        <section class="search-result-container hidden"></section>
-      </div>
+
       <!-- Error container to show user error -->
       <p class="msg-container hidden"></p>
     </header>
+    <!--  main section of page -->
     <main class="blog-specific">
+      <!-- result of received blogs will show under blog-result section -->
       <section class="flex blog-result"></section>
-      <div class="img-modal"></div>
-
+      <!-- section for recent comments -->
+      <section>
+        <h2>Recent comments</h2>
+        <div class="recent-comments"></div>
+      </section>
       <!-- form to post comments -->
-      <form class="comment flex">
-        <input type="text" name="name" id="name" placeholder="name" />
-        <textarea name="comment" id="comment-input" cols="30" rows="10" placeholder="Your Comment"></textarea>
-        <input type="submit" class="cta" />
-      </form>
+      <section class="flex post-comment-sec">
+        <h2>Leave your comment here</h2>
+        <form class="comment-form flex">
+          <input type="text" name="name" id="name" placeholder="name" />
+          <textarea name="comment" id="comment-input" cols="30" rows="10" placeholder="Your Comment"></textarea>
+          <input type="submit" class="cta" value="send" />
+        </form>
+      </section>
     </main>
+    <!-- most popular blogs  -->
+    <aside>
+      <h2>Most popular stories</h2>
+    </aside>
+    <!-- footer -->
     <footer class="flex">
-      <div class="subscribe-container flex">
-        <input type="email" name="subscribe" class="subscribe" placeholder="enter your e-mail address" />
-        <button class="cta">subscribe</button>
-      </div>
+      <!-- subscribe container -->
+      <form class="subscribe-form">
+        <div class="subscribe-container flex">
+          <input type="email" name="subscribe" class="subscribe" placeholder="enter your e-mail address" />
+          <input type="submit" class="cta" value="subscribe" />
+        </div>
+      </form>
+      <!-- social media icons -->
       <div class="social-icons">
-        <p>Follow us on</p>
-        <span><i class="fab fa-facebook"></i></span>
-        <span><i class="fab fa-instagram"></i></span>
-        <span><i class="fab fa-twitter"></i></span>
+        <a href="https://www.facebook.com/" target="_blank">
+          <span><i class="fab fa-facebook"></i></span>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <span><i class="fab fa-instagram"></i></span>
+        </a>
+        <a href="https://twitter.com/?lang=en" target="_blank">
+          <span><i class="fab fa-twitter"></i></span>
+        </a>
+        <a href="mailto:akt_soni@yahoo.co.in">
+          <span><i class="fas fa-envelope"></i></span>
+        </a>
       </div>
       <p class="copyright">&copy;2021 Designed and developed by Ankson</p>
+      <!-- to top button on right -->
       <div class="to-top-btn"><i class="fas fa-arrow-circle-up"></i></div>
     </footer>
+    <!-- modal to show bigger image on click -->
+    <div class="img-modal"></div>
+    <!-- loader on page load -->
     <div class="loader">
       <span></span>
       <span></span>
