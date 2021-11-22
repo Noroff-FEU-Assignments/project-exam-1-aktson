@@ -186,7 +186,6 @@ aside {
 }
 aside h3 {
   border-bottom: 1px solid var(--darkblue-color);
-  text-align: center;
 }
 .aside-content h4 {
   cursor: pointer;

@@ -53,7 +53,7 @@ body {
 }
 .testinomies h2 {
   grid-column: 1/-1;
-  text-decoration: underline;
+  text-align: left;
 }
 .testinomies img {
   max-width: 70%;
