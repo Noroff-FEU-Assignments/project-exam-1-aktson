@@ -134,3 +134,27 @@ function getSubscribeEmail (e) {
         displayMsg("Please enter valid e-mail", "error-msg");  
     } 
 }
+
+
+//get popular blogs
+async function getPopularBlogs(asideContainer) {
+    const perPageUrl = baseUrl + `posts/?per_page=4&_embed`;
+
+    try {
+        const response = await fetch(perPageUrl);
+        const results = await response.json();
+    
+        results.forEach(result=> {
+            asideContainer.innerHTML += 
+            `<a href= "../blog-specific-page.html?id=${result.id}" class="aside-content" > 
+                <div>
+                    <p>${result.title.rendered}</p>
+                
+                </div>
+            </a>`
+        })   
+    } 
+    catch (error) {
+        displayMsg( "" ,"error-msg")
+    }
+}

@@ -1,18 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Cantarell:ital@0;1&family=Spartan&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+
 :root {
-  --paragraph-text-fonts: "Spartan", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --heading-nav-fonts: "Cantarell", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --heading-nav-fonts: "Merienda", cursive, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --paragraph-text-fonts: "Cantarell", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --button-color: #4353ff;
   --primary-rgba: 67, 83, 255, 0.2;
   --secondary-color: #c328fa;
-  --gray-color: #707070;
+  --gray-color: #f2f2f2;
   --darkblue-color: #212980;
   --error-color: #ff5c5c;
   --success-color: #36ff70;
   --box-shadow: 2px 2px 2px rgba(67, 83, 255, 0.2);
   --padding-global: 16px;
   --section-margin: 200px 0;
+  font-family: ;
 }
 
 * {
@@ -22,6 +25,14 @@
 }
 
 /* global styling  */
+h1,
+h2 {
+  font-family: "Merienda", cursive;
+}
+h3,
+h4,
+h5,
+.cta,
 p,
 input,
 footer,
@@ -36,30 +47,26 @@ li {
   list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-.cta {
-  font-family: var(--heading-nav-fonts);
-}
 h1 {
-  font-size: 2.2em;
-  border-bottom: 1px solid var(--darkblue-color);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: var(--padding-global);
+  color: var(--darkblue-color);
 }
-h1,
 h2,
 h3 {
   margin-bottom: 20px;
   border-bottom: 1px solid var(--darkblue-color);
 }
 p {
-  line-height: 2em;
+  line-height: 1.4em;
+  font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
 #logo {
-  max-width: 60%;
+  max-width: 70%;
 }
 body {
   max-width: 100vw;
@@ -72,7 +79,7 @@ body {
   grid-template-areas:
     "header header header header header"
     "intro-sec intro-sec intro-sec intro-sec intro-sec"
-    ". main main main aside"
+    "... main main main aside"
     "footer footer footer footer footer";
 }
 /* global header */
@@ -89,10 +96,23 @@ header {
   z-index: 100;
   background-color: white;
 }
+
+/* global intro section */
 .intro-sec {
   grid-area: intro-sec;
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: var(--padding-global);
+  margin-top: 60px;
 }
 
+.introduction-text h1 {
+  color: white;
+}
 /* logo and navigation  */
 .nav-search-container {
   justify-content: space-evenly;
@@ -103,6 +123,7 @@ nav ul li {
   padding: var(--padding-global);
 }
 nav a {
+  font-size: 1.2em;
   transition: 0.3s linear;
   color: black;
   position: relative;
@@ -113,7 +134,7 @@ nav a {
   content: "";
   padding: 1px 0px;
   width: 100%;
-  top: 19px;
+  top: 25px;
   left: 0px;
   background-color: var(--darkblue-color);
   transition: 0.8s transform;
@@ -165,16 +186,19 @@ nav a {
   text-decoration: underline;
   padding: var(--padding-global);
   font-family: var(--paragraph-text-fonts);
-  font-size: 0.9em;
   line-height: 1.5em;
 }
 /* global main */
 main {
   grid-area: main;
+  max-width: 1000px;
   justify-self: center;
   align-self: center;
   position: relative;
   padding: 0 20px;
+}
+main > section {
+  margin: 100px auto;
 }
 /* global aside */
 aside {
@@ -185,14 +209,14 @@ aside {
   gap: 20px;
   justify-content: center;
   align-self: flex-start;
-  margin: var(--section-margin) 20px;
-  border-left: 1px solid var(--secondary-color);
-  margin-right: 20px;
+  margin: 150px 50px 100px 0;
+  box-shadow: var(--box-shadow);
+  background: var(--gray-color);
 }
 aside h3 {
   border-bottom: 1px solid var(--darkblue-color);
 }
-.aside-content h4 {
+.aside-content p {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -205,10 +229,11 @@ aside h3 {
   background-color: var(--button-color);
   cursor: pointer;
   transition: 0.5s ease;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 .cta:hover {
   background-color: var(--gray-color);
+  color: var(--darkblue-color);
 }
 /* global background loader */
 .loader {
@@ -240,7 +265,7 @@ aside h3 {
     height: 20px;
   }
 }
-/* global input, label, textarea, placeholder */
+/* global form, input, label, textarea, placeholder */
 ::placeholder {
   font-size: 1.2em;
 }
@@ -251,6 +276,16 @@ input,
 textarea {
   padding: 12px;
   outline: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+form input,
+textarea {
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 /* global flex and grid*/
@@ -291,20 +326,20 @@ textarea {
   width: 100%;
   text-align: center;
 }
+.success-msg,
+.error-msg {
+  padding: var(--padding-global);
+  font-size: 1em;
+}
 .success-msg {
   background-color: var(--success-color);
-  padding: var(--padding-global);
-  font-weight: bold;
 }
 .error-msg {
   background-color: var(--error-color);
-  padding: var(--padding-global);
   color: white;
 }
 .error {
   color: var(--error-color);
-  font-size: 0.9em;
-  /* padding: 0px var(--padding-global); */
 }
 .hidden {
   display: none;
@@ -318,7 +353,8 @@ textarea {
 
 .date {
   font-style: italic;
-  font-size: 0.8em;
+  font-size: 0.9em;
+  margin-top: 20px;
 }
 
 /* global footer */
@@ -330,6 +366,9 @@ footer {
   flex-direction: column;
   gap: 20px;
   position: relative;
+}
+footer p {
+  margin-bottom: 0;
 }
 .social-icons {
   font-size: 1.4em;
@@ -365,42 +404,13 @@ footer {
   color: white;
   padding: var(--padding-global);
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 .to-top-btn {
   position: absolute;
-  right: 20px;
+  right: 5px;
   top: 20px;
   color: var(--button-color);
   font-size: 2em;
   cursor: pointer;
-}
-/* Contact page */
-.contact-main {
-  flex-direction: column;
-  justify-content: center;
-  margin: 80px auto;
-}
-.form-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  box-shadow: var(--box-shadow);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 32px;
-  position: relative;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-form input,
-textarea {
-  border: none;
-  border-bottom: 1px solid black;
-}
-.form-aside {
-  padding: var(--padding-global);
 }

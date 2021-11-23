@@ -14,7 +14,6 @@ async function getBlog() {
         
         const response = await fetch(idUrl);
         const result = await response.json();
-        
 
         const image = result.jetpack_featured_media_url;
         const datePublished = new Date(result.date).toDateString();
@@ -139,3 +138,7 @@ async function getComments () {
 }
 
 getComments();
+
+//get popular blogs in aside section
+const aside = document.querySelector("aside");
+getPopularBlogs(aside)

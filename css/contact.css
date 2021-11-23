@@ -1,0 +1,32 @@
+/* Contact page */
+.introduction {
+  height: 10vh;
+  text-align: center;
+}
+.contact-main {
+  flex-direction: column;
+  justify-content: center;
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  box-shadow: var(--box-shadow);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  position: relative;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+form input,
+textarea {
+  border: none;
+  border-bottom: 1px solid black;
+}
+.form-aside {
+  padding: var(--padding-global);
+}

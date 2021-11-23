@@ -41,6 +41,36 @@
   nav a {
     display: inline;
   }
+  aside {
+    margin: 50px 10px;
+  }
+  .subscribe-container {
+    flex-direction: column;
+  }
+  .social-icons .fab,
+  .social-icons .fas {
+    padding: 4px;
+    font-size: 1em;
+  }
+
+  /* homepage */
+  .testinomies {
+    grid-template-columns: auto auto;
+    padding: 8px;
+  }
+  /* blog page */
+  .blogs-section {
+    grid-template-columns: auto;
+  }
+
+  /* Contact page */
+  .form-container {
+    grid-template-columns: auto;
+    padding: 8px;
+  }
+  .form-aside {
+    grid-row: 1/-1;
+  }
 }
 /* media queries tablets  */
 @media (min-width: 637px) and (max-width: 820px) {
@@ -56,6 +86,9 @@
   }
   header {
     justify-content: center;
+  }
+  aside {
+    margin: 20px;
   }
 }
 @media (min-width: 821px) and (max-width: 1200px) {

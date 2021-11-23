@@ -74,14 +74,11 @@ async function postFormData () {
             "your-email": email.value,
             "your-subject": subject.value,
             "your-message": message.value
-        })
-      
-        
+        }) 
     })
     const result = await response.json();
     console.log(result);
-
-
-  }
+}
 
 postFormData();
+

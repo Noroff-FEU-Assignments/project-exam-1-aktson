@@ -1,4 +1,4 @@
-const blogsContainer = document.querySelector(".blogs");
+const blogsContainer = document.querySelector(".blogs-section");
 const viewMoreBtn = document.querySelector(".view-more");
 
 
@@ -17,7 +17,8 @@ async function getBlogs() {
         displayMsg( "","error-msg")
     }
 }
-getBlogs()
+getBlogs();
+
 
 
 // event listner to show 10 more posts 
@@ -30,7 +31,7 @@ function creatHtml (result) {
     const altText = result._embedded["wp:featuredmedia"][0].alt_text;
   
     blogsContainer.innerHTML += 
-        `<a href= "../blog-specific-page.html?id=${result.id}" class="article grid-two-columns"> 
+        `<a href= "../blog-specific-page.html?id=${result.id}" class="article "> 
             <img src="${result.jetpack_featured_media_url}" alt="${altText}" />
             <div>
                 <p class="date">${date}</p>
@@ -40,3 +41,7 @@ function creatHtml (result) {
             </div>
         </a>`
 }
+
+//get popular blogs in aside section
+const aside = document.querySelector("aside");
+getPopularBlogs(aside)
