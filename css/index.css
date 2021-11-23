@@ -3,12 +3,12 @@ body {
   display: grid;
   overflow-x: hidden;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-    "header header header header"
-    "intro-sec intro-sec intro-sec intro-sec"
-    ". main main aside"
-    "footer footer footer footer";
+    "header header header header header"
+    "intro-sec intro-sec intro-sec intro-sec intro-sec"
+    ". main main main aside"
+    "footer footer footer footer footer";
 }
 .intro-sec {
   grid-area: intro-sec;
@@ -17,7 +17,7 @@ body {
 .latest-post-sec,
 /* .introduction, */
 .testinomies,
-.popular-blogs {
+.popular-blogs, .about {
   margin: 200px auto;
   max-width: 1000px;
   justify-content: center;
@@ -25,15 +25,17 @@ body {
 
 /* section introduction  */
 .introduction {
-  height: 60vh;
+  width: 100vw;
+  height: 70vh;
   color: white;
   padding: var(--padding-global);
   margin-top: 70px;
   background-color: var(--darkblue-color);
-  align-items: center;
+  align-items: end;
   display: flex;
   justify-content: center;
   position: relative;
+  background: url(../images/introduction.jpg) no-repeat top;
 }
 
 .introduction-text {
@@ -78,6 +80,11 @@ body {
 .carousel-btns-container {
   justify-content: space-between;
   transition: 1s ease;
+}
+.latest-post-sec h2,
+.latest-post-sec h3 {
+  border: none;
+  margin-bottom: 0;
 }
 
 .carousel-container {

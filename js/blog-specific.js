@@ -125,6 +125,7 @@ async function getComments () {
     for (let i = 0; i <= count; i++) {
         let date = new Date(results[i].date).toLocaleString();
 
+        
         recentComntContainer.innerHTML += ` 
             <div class="flex comment-header">
              <span><i class="fas fa-user-circle"></i></span>
