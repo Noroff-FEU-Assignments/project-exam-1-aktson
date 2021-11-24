@@ -138,34 +138,43 @@ function getSubscribeEmail (e) {
 }
 
 
-//get popular blogs
-async function getPopularBlogs(asideContainer) {
-    const perPageUrl = baseUrl + `posts?filter[orderby]=date&order=asc&_embed`;
-    // https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=3&_embed
+//get blogs by categories
+const asideContainer = document.querySelector(".aside-content");
+
+const categorySelect = document.querySelector("#category");
+
+categorySelect.addEventListener("change", getBlogByCategory);
+
+async function getBlogByCategory() {
+  
     try {
-        const response = await fetch(perPageUrl);
+        const url = baseUrl + `posts?categories=${categorySelect.value}`;
+
+        const response = await fetch(url);
         const results = await response.json();
         
-        let count = 3;
-        for (let i = 0 ; i < count; i++) {
-            const thumbnail = results[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
-                     
-            asideContainer.innerHTML += 
-            `<a href= "../blog-specific-page.html?id=${results[i].id}" class="aside-content" > 
-                <div class ="aside-grid-tablet-mobile " >
-                    <p>${results[i].title.rendered}</p>
-                    <img src="${thumbnail}" style="float:left;" />  </br> 
-               
-                </div>
-            </a>`
+        asideContainer.innerHTML = "";
 
+        if(!categorySelect.value) {
+            asideContainer.innerHTML = "";
+
+        } 
+        else {
+            results.forEach(result => {
+        
+                asideContainer.innerHTML += `
+                     <a href= "../blog-specific-page.html?id=${result.id}" class = "aside-content" >     
+                         <div class = "aside-grid-tablet-mobile aside-div">
+                             <p>${result.title.rendered}</p>
+                             <img src="${result.jetpack_featured_media_url}" alt ="" />
+                         </div>
+                     </a>` 
+            });
         }
-        // results.forEach(result=> {
-          
-        // })   
     } 
     catch (error) {
         displayMsg( "" ,"error-msg")    
         console.log(error)
     }
 }
+

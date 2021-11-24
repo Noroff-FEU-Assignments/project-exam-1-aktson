@@ -57,7 +57,9 @@
     padding: 4px;
     font-size: 1em;
   }
-
+  .to-top-btn {
+    right: 5px;
+  }
   /* homepage */
   .testinomies {
     grid-template-columns: auto auto;

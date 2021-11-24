@@ -165,7 +165,7 @@ nav a {
   position: absolute;
   font-size: 1.3em;
   right: 5px;
-  top: 15px;
+  top: 12px;
   padding: 2px;
   color: var(--button-color);
 }
@@ -213,18 +213,31 @@ aside {
   background: var(--gray-color);
 }
 .aside-content {
+  padding: 8px;
+}
+
+.aside-content img {
+  max-width: 100%;
+}
+.aside-div {
   box-shadow: var(--box-shadow);
+  background-color: white;
   padding: 8px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-aside h3 {
-  border-bottom: 1px solid var(--darkblue-color);
 }
 .aside-content p {
   cursor: pointer;
   text-decoration: underline;
 }
+#category {
+  border: none;
+  outline: none;
+  padding: var(--padding-global);
+  font-family: var(--paragraph-text-fonts);
+  font-size: 1.1em;
+}
+
 /* global call to action button  */
 .cta {
   display: inline-block;
@@ -412,7 +425,7 @@ footer p {
 }
 .to-top-btn {
   position: absolute;
-  right: 5px;
+  right: 20px;
   top: 20px;
   color: var(--button-color);
   font-size: 2em;
