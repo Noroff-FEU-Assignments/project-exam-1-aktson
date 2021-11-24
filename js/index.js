@@ -16,11 +16,12 @@ async function getPosts(url) {
         
         results.forEach(result => {
             creatHtml(result)
-            console.log(result._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url)
+           
         })
     } 
     catch (error) {
         displayMsg(error, "error-msg")
+        console.log(error)
             
     }
 }

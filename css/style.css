@@ -15,7 +15,6 @@
   --box-shadow: 2px 2px 2px rgba(67, 83, 255, 0.2);
   --padding-global: 16px;
   --section-margin: 200px 0;
-  font-family: ;
 }
 
 * {
@@ -26,10 +25,11 @@
 
 /* global styling  */
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Merienda", cursive;
 }
-h3,
+
 h4,
 h5,
 .cta,
@@ -101,7 +101,7 @@ header {
 .intro-sec {
   grid-area: intro-sec;
   width: 100vw;
-  height: 60vh;
+  height: 70vh;
   position: relative;
   display: flex;
   align-items: end;
@@ -192,7 +192,7 @@ main {
   grid-area: main;
   max-width: 1000px;
   justify-self: center;
-  align-self: center;
+  /* align-self: center; */
   position: relative;
   padding: 0 20px;
 }
@@ -237,8 +237,7 @@ aside h3 {
   font-size: 1.2em;
 }
 .cta:hover {
-  background-color: var(--gray-color);
-  color: var(--darkblue-color);
+  transform: scale(0.9);
 }
 /* global background loader */
 .loader {

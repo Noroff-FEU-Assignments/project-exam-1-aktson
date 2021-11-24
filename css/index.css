@@ -43,7 +43,7 @@
 }
 
 .carousel-container {
-  gap: 20px;
+  gap: 10px;
   flex-wrap: nowrap;
   /* display: grid;
   grid-template-columns: repeat(12, 230px); */
@@ -66,10 +66,11 @@
   max-width: 100%;
 }
 .carousel-container > a {
-  /* box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px; */
+  margin-bottom: 10px;
+
   flex: 0 0 230px;
 }
 .blog {
@@ -106,10 +107,10 @@
   margin-right: 10px;
   padding: 10px;
   background: none;
-  transition: 1s transform;
+  transition: 0.3s transform;
 }
 .right-btn:hover,
 .left-btn:hover {
-  color: var(--gray-color);
+  /* color: var(--gray-color); */
   transform: scale(1.2);
 }

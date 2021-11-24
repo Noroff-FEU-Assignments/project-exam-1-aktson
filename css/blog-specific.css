@@ -16,6 +16,9 @@
 .blog-result img {
   max-width: 100%;
 }
+.comment-header p {
+  margin-bottom: 0;
+}
 
 .img-modal {
   display: flex;
@@ -76,8 +79,4 @@
   padding: var(--padding-global) 0;
   margin-bottom: 20px;
   background-color: rgba(240, 239, 239, 0.356);
-}
-.aside-content {
-  box-shadow: var(--box-shadow);
-  padding: 8px;
 }

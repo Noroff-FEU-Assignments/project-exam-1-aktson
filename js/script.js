@@ -140,25 +140,32 @@ function getSubscribeEmail (e) {
 
 //get popular blogs
 async function getPopularBlogs(asideContainer) {
-    const perPageUrl = baseUrl + `posts/?per_page=4&_embed`;
-
+    const perPageUrl = baseUrl + `posts?filter[orderby]=date&order=asc&_embed`;
+    // https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=3&_embed
     try {
         const response = await fetch(perPageUrl);
         const results = await response.json();
         
-        results.forEach(result=> {
-            const thumbnail = result._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
+        let count = 3;
+        for (let i = 0 ; i < count; i++) {
+            const thumbnail = results[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
+                     
             asideContainer.innerHTML += 
-            `<a href= "../blog-specific-page.html?id=${result.id}" class="aside-content" > 
+            `<a href= "../blog-specific-page.html?id=${results[i].id}" class="aside-content" > 
                 <div class ="aside-grid-tablet-mobile " >
-                    <p>${result.title.rendered}</p>
+                    <p>${results[i].title.rendered}</p>
                     <img src="${thumbnail}" style="float:left;" />  </br> 
                
                 </div>
             </a>`
-        })   
+
+        }
+        // results.forEach(result=> {
+          
+        // })   
     } 
     catch (error) {
         displayMsg( "" ,"error-msg")    
+        console.log(error)
     }
 }

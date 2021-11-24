@@ -22,7 +22,7 @@ async function getBlog() {
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
         title.innerText = `MyBlog | ${result.title.rendered} | ${author}`
-    
+        console.log(result);
         resultContainer.innerHTML =
             `<h1>${result.title.rendered}</h1>
            
@@ -117,20 +117,17 @@ async function getComments () {
     const response = await fetch(commentUrl);
     const results = await response.json();
 
-  
-
-    console.log(results);
     let count = 10;
     for (let i = 0; i <= count; i++) {
-        let date = new Date(results[i].date).toLocaleString();
+    //   const date = new Date(results[i].date).toLocaleString();
 
-        
+        console.log(results[i].date)
         recentComntContainer.innerHTML += ` 
             <div class="flex comment-header">
              <span><i class="fas fa-user-circle"></i></span>
              <div>
-                 <p>${results[i].author_name}</p>
-                 <p>${date}</p>
+                 <p>${results[i].author_name.toUpperCase()}</p>
+                 <p>${results[i].date.toLocaleString()}</p>
              </div>
          </div>
          <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
