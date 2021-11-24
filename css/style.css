@@ -114,10 +114,7 @@ header {
   color: white;
 }
 /* logo and navigation  */
-.nav-search-container {
-  justify-content: space-evenly;
-  gap: 20px;
-}
+
 nav ul li {
   display: inline-block;
   padding: var(--padding-global);
@@ -157,7 +154,10 @@ nav a {
   font-size: 1.5em;
   cursor: pointer;
 }
-
+.nav-search-container {
+  justify-content: space-evenly;
+  gap: 20px;
+}
 .search-container {
   position: relative;
 }
@@ -165,10 +165,9 @@ nav a {
   position: absolute;
   font-size: 1.3em;
   right: 5px;
-  top: 10px;
+  top: 15px;
   padding: 2px;
   color: var(--button-color);
-  pointer-events: visibleFill;
 }
 /* global search results container */
 
@@ -212,6 +211,12 @@ aside {
   margin: 150px 50px 100px 0;
   box-shadow: var(--box-shadow);
   background: var(--gray-color);
+}
+.aside-content {
+  box-shadow: var(--box-shadow);
+  padding: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 aside h3 {
   border-bottom: 1px solid var(--darkblue-color);

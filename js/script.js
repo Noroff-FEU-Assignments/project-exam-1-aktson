@@ -8,7 +8,9 @@ const hamburger = document.querySelector(".hamburger");
 const navigation = document.querySelector("nav");
 const navigationContainer = document.querySelector(".nav-search-container");
 
-hamburger.onclick = function() {
+hamburger.addEventListener("click", showNav)
+
+function showNav(e) {
 
     if (navigationContainer.style.transform === "translateY(-100%)") {
         navigationContainer.style.transform = "translateX(0px)";
@@ -28,6 +30,7 @@ const searchIcon = document.querySelector(".fa-search");
 const searchInput = document.querySelector("#search");
 
 searchInput.addEventListener("keyup", getSearchResult);
+searchIcon.addEventListener("click", getSearchResult);
 
 // get search query async function
 async function getSearchResult () {
@@ -101,7 +104,6 @@ function removeSuccessMsg () {
 const toTopBtn = document.querySelector(".to-top-btn");
 
 toTopBtn.onclick = function () {
-    console.log("ankit")
     window.scrollTo ({
         top:0,
         left:0,
@@ -143,18 +145,20 @@ async function getPopularBlogs(asideContainer) {
     try {
         const response = await fetch(perPageUrl);
         const results = await response.json();
-    
+        
         results.forEach(result=> {
+            const thumbnail = result._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
             asideContainer.innerHTML += 
             `<a href= "../blog-specific-page.html?id=${result.id}" class="aside-content" > 
-                <div>
+                <div class ="aside-grid-tablet-mobile " >
                     <p>${result.title.rendered}</p>
-                
+                    <img src="${thumbnail}" style="float:left;" />  </br> 
+               
                 </div>
             </a>`
         })   
     } 
     catch (error) {
-        displayMsg( "" ,"error-msg")
+        displayMsg( "" ,"error-msg")    
     }
 }

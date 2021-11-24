@@ -77,3 +77,7 @@
   margin-bottom: 20px;
   background-color: rgba(240, 239, 239, 0.356);
 }
+.aside-content {
+  box-shadow: var(--box-shadow);
+  padding: 8px;
+}

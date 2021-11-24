@@ -20,7 +20,9 @@
     display: block;
     z-index: 50;
   }
-
+  .navbar::before {
+    top: 40px;
+  }
   .nav-search-container {
     background-color: white;
     width: 100vw;
@@ -33,6 +35,9 @@
     box-shadow: var(--box-shadow);
     flex-direction: column;
     padding: var(--padding-global);
+  }
+  .search-result-container {
+    left: -80px;
   }
   nav ul {
     display: flex;
@@ -89,6 +94,13 @@
   }
   aside {
     margin: 20px;
+  }
+  .aside-grid-tablet-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: end;
   }
 }
 @media (min-width: 821px) and (max-width: 1200px) {
