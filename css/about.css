@@ -1,4 +1,6 @@
 .introduction {
-  background: url(../images/about.jpg) no-repeat center;
+  background: url(../images/smiley-face.jpg) no-repeat center;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: overlay;
 }

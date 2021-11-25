@@ -1,7 +1,9 @@
 /* section introduction  */
 .introduction {
-  background: url(../images/introduction.jpg) no-repeat top;
+  background: url(../images/home-page-intro.jpg) no-repeat top;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: overlay;
 }
 
 /* section testinomies */

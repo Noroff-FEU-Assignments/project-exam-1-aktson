@@ -167,6 +167,7 @@ async function getBlogByCategory() {
                          <div class = "aside-grid-tablet-mobile aside-div">
                              <p>${result.title.rendered}</p>
                              <img src="${result.jetpack_featured_media_url}" alt ="" />
+                       
                          </div>
                      </a>` 
             });
@@ -178,3 +179,4 @@ async function getBlogByCategory() {
     }
 }
 
+     //  

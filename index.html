@@ -10,16 +10,21 @@
     <script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
     <title>Home | ANKSON</title>
     <!-- Hotjar Tracking Code for https://ankson-blog.netlify.app/ -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:2718385,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2718385, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
   <body>
     <!-- header containes logo,hamburger-bars navigation ,search container, search result container  and error container -->
@@ -50,10 +55,12 @@
       <p class="msg-container hidden"></p>
     </header>
     <!-- introduction -->
-    <section class="introduction intro-sec"></section>
+    <section class="introduction intro-sec">
+      <div class="intro-text"><h1>Welcome to my first blogging site</h1></div>
+    </section>
     <main>
       <section class="about">
-        <h1>Welcome to my first blogging site!!!</h1>
+        <h2>Welcome to my first blogging site!!!</h2>
         <p>
           Hi there! I'm font-end developer student by day, aspiring actor by night, and this is my website. I live in Norway , have a great boy named
           Noah, and I like mojitos at beach and day dreaming...
@@ -70,6 +77,19 @@
           The started writing since I was assigned blogging website for my first years project exam. Let's see how it goes.... Explore from my newly
           written blogs..
         </p>
+      </section>
+
+      <!-- latest post section -->
+      <section class="latest-post-sec">
+        <div class="flex carousel-btns-container">
+          <h2>Latest posts</h2>
+          <div>
+            <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <!-- carousel result container from api -->
+        <div class="flex carousel-container"></div>
       </section>
       <!-- testinomies -->
       <section class="grid-four-columns testinomies">
@@ -96,18 +116,6 @@
           <p><i>--Samir</i></p>
         </div>
       </section>
-      <!-- latest post section -->
-      <section class="latest-post-sec">
-        <div class="flex carousel-btns-container">
-          <h2>Latest posts</h2>
-          <div>
-            <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
-            <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </div>
-        <!-- carousel result container from api -->
-        <div class="flex carousel-container"></div>
-      </section>
     </main>
     <!-- aside gets post from choosen categories -->
     <aside class="popular-blogs">
@@ -119,7 +127,7 @@
         <option value="38">Programming</option>
         <option value="39">General</option>
       </select>
-      <section class="aside-content"></div>
+      <section class="aside-content"></section>
     </aside>
     <!-- footer -->
     <footer class="flex">
