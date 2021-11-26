@@ -37,10 +37,13 @@
     top: 0;
     left: 0;
     transition: 1s transform;
-    transform: translatey(-100%);
+    transform: translateY(-100%);
     box-shadow: var(--box-shadow);
     flex-direction: column;
     padding: var(--padding-global);
+  }
+  .show-nav {
+    transform: translateY(0px);
   }
   .search-result-container {
     left: -80px;

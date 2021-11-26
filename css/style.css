@@ -225,7 +225,7 @@ aside {
   display: flex;
   flex-direction: column;
   padding: var(--padding-global);
-  gap: 20px;
+  /* gap: 20px; */
   justify-content: center;
   align-self: flex-start;
   margin: 150px 50px 100px 0;
