@@ -3,7 +3,7 @@ const leftBtn = document.querySelector(".left-btn");
 const rightBtn = document.querySelector(".right-btn");
 
 const carousel = document.querySelector(".carousel-container");
-const dots = document.querySelectorAll(".dot");
+
 
 
 //async function to fetch posts 
@@ -45,20 +45,22 @@ function creatHtml(result) {
 leftBtn.addEventListener("click", slideLeft);
 rightBtn.addEventListener("click", slideRight);
 
+const deviceavailabelWidth = window.screen.availWidth;
 
 function slideLeft() {
     carouselContainer.scrollBy({
         top:0,
-        left:-1000,
+        left:-(carouselContainer.clientWidth),
         behavior: 'smooth'
-     });
+    });
+
 }
 function slideRight() {
+
     carouselContainer.scrollBy({
         top:0,
-        left:1000,
+        left:carouselContainer.clientWidth,
         behavior: 'smooth'
-     });
+    });
 }
-
-
+   
