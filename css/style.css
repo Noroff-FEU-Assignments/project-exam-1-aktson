@@ -111,6 +111,7 @@ header {
 
 .intro-text {
   width: 300px;
+  color: var(--button-color);
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border-top-right-radius: 70px;
