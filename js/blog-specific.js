@@ -1,13 +1,14 @@
 const title = document.querySelector("title");
-
 const resultContainer = document.querySelector(".blog-result");
+
+//get querystring parameter from id passed in 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const blogId = params.get("id");
 
 
 
-// async function to blogs, id will be passed in from querystring to base url
+// async function to get specific blog, id will be passed in from querystring to base url
 async function getBlog() {
   try {
         const idUrl = baseUrl + `posts/${blogId}?_embed`;
@@ -22,23 +23,23 @@ async function getBlog() {
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
         title.innerText = `MyBlog | ${result.title.rendered} | ${author}`
-        console.log(result);
-        resultContainer.innerHTML =
-            `<h1>${result.title.rendered}</h1>
-           
+     
+        resultContainer.innerHTML =`
+            <h1>${result.title.rendered}</h1>
             <img src="${image}" alt="${altText}" class = "received-image" /> 
             <p class= "date"><i class="fas fa-user-edit"></i>: <b>${author.toUpperCase()} </br></b> <i class="fas fa-calendar-alt"></i>: <b>${datePublished}</b></p>
             <p> ${result.content.rendered}</p>
             <p class= "date"> Last modified: <b>${dateModiefied}</b></p>
-           `;
+            `;
     
         //onclick function for image
         const receivedImage = document.querySelector(".received-image");
         const imageModal = document.querySelector(".img-modal");
-    
+        
         receivedImage.onclick = function expandModal(e) {
             imageModal.style.display ="flex"
             imageModal.innerHTML =`<img src= "${image}">`;
+                   
         }
 
         //to close clicked image
@@ -49,7 +50,8 @@ async function getBlog() {
         }
   } 
   catch(error) {
-       displayMsg(error, "error-msg")
+    displayMsg(error, "error-msg");
+    console.log(error)
         
   }
 } 
@@ -75,8 +77,8 @@ const commentUrl = baseUrl + `comments?post=${blogId}`;
 
 async function postCommentsApiCall() {
     
-    if (!nameInput.value && !commentInput.value) {
-        displayMsg("Please enter all fields", "error-msg");
+    if (!nameInput.value || !commentInput.value) {
+        displayMsg("Please enter all fields to comment", "error-msg");
     }
 
     else if (nameInput.value && commentInput.value) {
@@ -100,8 +102,6 @@ async function postCommentsApiCall() {
             displayMsg("Your comment successfully posted!!", "success-msg");
             form.reset();
             removeSuccessMsg();
-        
-            console.log(results)
         }
         catch(error) {
             displayMsg("", "error-msg")
@@ -119,18 +119,15 @@ async function getComments () {
 
     let count = 10;
     for (let i = 0; i <= count; i++) {
-    //   const date = new Date(results[i].date).toLocaleString();
-
-        console.log(results[i].date)
         recentComntContainer.innerHTML += ` 
             <div class="flex comment-header">
-             <span><i class="fas fa-user-circle"></i></span>
-             <div>
-                 <p>${results[i].author_name.toUpperCase()}</p>
-                 <p>${results[i].date.toLocaleString()}</p>
-             </div>
-         </div>
-         <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
+                <span><i class="fas fa-user-circle"></i></span>
+                <div>
+                    <p>${results[i].author_name.toUpperCase()}</p>
+                    <p>${results[i].date.toLocaleString()}</p>
+                 </div>
+            </div>
+            <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
     }
 }
 

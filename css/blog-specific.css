@@ -38,7 +38,9 @@
 .img-modal img {
   max-width: 70%;
   transition: 1s ease;
+  position: relative;
 }
+
 .received-image {
   cursor: pointer;
 }
@@ -56,7 +58,10 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
-
+.comment-form textarea,
+.comment-form input {
+  font-size: 1em;
+}
 .post-comment-sec .cta {
   width: max-content;
 }

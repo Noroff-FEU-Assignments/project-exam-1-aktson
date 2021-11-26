@@ -14,7 +14,8 @@ async function getBlogs() {
         })   
     } 
     catch (error) {
-        displayMsg( "","error-msg")
+        displayMsg( "","error-msg");
+        console.log(error);
     }
 }
 getBlogs();

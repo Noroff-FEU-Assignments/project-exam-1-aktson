@@ -47,8 +47,6 @@
 .carousel-container {
   gap: 10px;
   flex-wrap: nowrap;
-  /* display: grid;
-  grid-template-columns: repeat(12, 230px); */
   overflow-x: auto;
   transition: 1s linear;
   padding: 8px;
