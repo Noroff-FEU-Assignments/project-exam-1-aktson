@@ -93,8 +93,8 @@
     grid-row: 1/-1;
   }
   /* blog specific page */
-  .blog-specific {
-    margin: 80px 10px 10px 10px;
+  .blog-specific-aside {
+    margin-top: 80px;
   }
 }
 /* media queries tablets  */
