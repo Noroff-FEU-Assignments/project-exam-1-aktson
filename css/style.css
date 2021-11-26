@@ -169,7 +169,7 @@ nav a {
   right: 20px;
   z-index: 10;
   padding: var(--padding-global);
-  transition: 0.5s transform;
+  transition: 0.3s transform;
   display: none;
   font-size: 1.5em;
   cursor: pointer;

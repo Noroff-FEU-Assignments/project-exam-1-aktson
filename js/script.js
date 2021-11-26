@@ -13,11 +13,11 @@ hamburger.addEventListener("click", showNav)
 function showNav(e) {
 
     navigationContainer.classList.toggle("show-nav");
-    if (hamburger.style.transform === "rotate(90deg)") {
+    if (hamburger.style.transform === "rotate(180deg)") {
         hamburger.style.transform = "rotate(0deg)";
     }
     else {
-         hamburger.style.transform = "rotate(90deg)";
+         hamburger.style.transform = "rotate(180deg)";
     } 
 }
 
