@@ -18,7 +18,7 @@ async function getBlog() {
 
         const image = result.jetpack_featured_media_url;
         const datePublished = new Date(result.date).toDateString();
-        const dateModiefied = new Date(result.modified).toDateString();
+        const dateModiefied = new Date(result.modified).toLocaleString();
         const author = result._embedded.author[0].name;
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
