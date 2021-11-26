@@ -94,7 +94,7 @@
   }
   /* blog specific page */
   .blog-specific-aside {
-    margin-top: 80px;
+    margin: 80px 10px 10px 10px;
   }
 }
 /* media queries tablets  */
