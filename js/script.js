@@ -1,6 +1,6 @@
 // baseurl
 const baseUrl = `https://ankson.no/ankson-blog/wp-json/wp/v2/`;
-const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?_embed";
+const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=12&_embed";
 const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzNzU3MDc2OSwibmJmIjoxNjM3NTcwNzY5LCJleHAiOjE2MzgxNzU1NjksImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.6kUomlZ_z6XcHccOXuK6upZjZJzkZEkYqJI5PS-NQZs";
 
 //hamburger onclick event 
@@ -131,7 +131,7 @@ function getSubscribeEmail (e) {
         removeSuccessMsg();
     }
     else {
-        displayMsg("Please enter valid e-mail", "error-msg");  
+        displayMsg("Please enter valid e-mail to subscribe", "error-msg");  
     } 
 }
 

@@ -23,7 +23,8 @@ function checkForm(e) {
     checkInputValue(checkValidEmail(email.value), email, emailSpan, "email not valid");
     checkInputValue(checkLength(subject.value, 15), subject, subjectSpan, `subject must be atleast 15 characters`);
     checkInputValue(checkLength(message.value, 25), message, messageSpan, `message must be atleast 25 characters`);
-
+    displayMsg("one or more fields are missing", "error-msg");
+    
     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
 
         displayMsg("Your message was sent successfully", "success-msg");

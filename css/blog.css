@@ -6,6 +6,7 @@
   background: url(../images/blog-page-intro.jpg) no-repeat bottom;
   background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: overlay;
+  background-attachment: fixed;
 }
 .blogs-main {
   justify-content: center;
@@ -13,7 +14,6 @@
   flex-direction: column;
   padding: var(--padding-global);
   display: flex;
-  /* gap: 20px; */
   margin-top: 80px;
 }
 .blogs-main h1 {

@@ -3,4 +3,5 @@
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: overlay;
+  background-attachment: fixed;
 }

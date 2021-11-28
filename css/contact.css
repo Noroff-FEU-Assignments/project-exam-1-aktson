@@ -6,6 +6,7 @@
 .contact-main {
   flex-direction: column;
   justify-content: center;
+  margin: 110px auto;
 }
 .form-container {
   display: grid;

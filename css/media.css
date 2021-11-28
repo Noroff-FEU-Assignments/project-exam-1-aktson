@@ -71,11 +71,16 @@
   }
   .social-icons .fab,
   .social-icons .fas {
-    padding: 4px;
-    font-size: 0.9em;
+    padding: 6px;
+    font-size: 0.8em;
   }
   .to-top-btn {
     right: 5px;
+    top: 20px;
+    font-size: 1.2em;
+  }
+  .msg-container {
+    top: 51px;
   }
   /* homepage */
   .testinomies {
@@ -98,6 +103,7 @@
   /* blog specific page */
   .blog-specific-aside {
     margin: 80px 10px 10px 10px;
+    display: none;
   }
 }
 /* media queries tablets  */
@@ -129,6 +135,14 @@
     justify-content: center;
     align-items: center;
     justify-items: end;
+  }
+  .msg-container {
+    top: 100px;
+  }
+
+  /* contact page */
+  .contact-main {
+    margin: 150px auto;
   }
 }
 @media (min-width: 821px) and (max-width: 1200px) {

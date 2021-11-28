@@ -82,16 +82,9 @@
 .blog:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* .blog p {
-  font-size: 0.8em;
-  font-style: italic;
-} */
-
 .blog p,
 .blog h3 {
   padding: 8px;
-  color: black;
-  text-overflow: ellipsis;
 }
 .blog > img {
   width: 100%;
@@ -100,7 +93,7 @@
 .right-btn,
 .left-btn {
   border: none;
-  color: var(--button-color);
+  color: black;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1.6em;
