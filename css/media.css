@@ -91,6 +91,9 @@
   .blogs-section {
     grid-template-columns: auto;
   }
+  .blogs-main {
+    margin-top: 40px;
+  }
 
   /* Contact page */
   .form-container {

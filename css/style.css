@@ -217,7 +217,7 @@ main {
   padding: 0 20px;
 }
 main > section {
-  margin: 100px auto;
+  margin: 40px auto 100px auto;
 }
 /* global aside */
 aside {
@@ -399,11 +399,10 @@ textarea {
 /* global footer */
 footer {
   grid-area: footer;
-  justify-content: space-between;
   padding: 40px;
   border-top: 1px solid var(--secondary-color);
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   position: relative;
   background-color: var(--darkblue-color);
 }
