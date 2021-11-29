@@ -258,16 +258,47 @@ aside {
 /* global footer */
 footer {
   grid-area: footer;
-  padding: 40px;
-  border-top: 1px solid var(--secondary-color);
   flex-direction: column;
   gap: 40px;
   position: relative;
   background-color: var(--darkblue-color);
+  align-items: normal;
 }
 footer p {
   margin-bottom: 0;
 }
+.subscribe-form {
+  background: url(../images/pensils.jpg) no-repeat top;
+  background-attachment: cover;
+  text-align: center;
+  padding: 40px;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
+.subscribe-form h3 {
+  border-bottom: none;
+  font-size: 1.8em;
+}
+.subscribe-container {
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+}
+.subscribe {
+  padding: var(--padding-16px);
+  text-align: center;
+  width: 250px;
+}
+.subscribe-container .cta {
+  width: 100%;
+}
+.icons-copyright-wrapper {
+  justify-content: center;
+  padding: 40px;
+}
+
 .social-icons {
   font-size: 1.4em;
   padding: var(--padding-8px);
@@ -283,17 +314,7 @@ footer p {
   cursor: pointer;
   color: white;
 }
-.subscribe-container {
-  justify-content: center;
-  align-items: normal;
-  flex-wrap: wrap;
-}
-.subscribe {
-  width: 250px;
-  padding: var(--padding-16px) 4px;
-  border: 1px solid black;
-  text-align: center;
-}
+
 .copyright {
   position: absolute;
   width: 100%;
@@ -377,7 +398,6 @@ form {
 form input,
 textarea {
   border: none;
-  border-bottom: 1px solid black;
 }
 
 /* global flex and grid*/
