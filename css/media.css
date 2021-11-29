@@ -40,7 +40,7 @@
     transform: translateY(-100%);
     box-shadow: var(--box-shadow);
     flex-direction: column;
-    padding: var(--padding-global);
+    padding: var(--padding-1em);
   }
   .show-nav {
     transform: translateY(0px);
@@ -85,7 +85,7 @@
   /* homepage */
   .testinomies {
     grid-template-columns: auto auto;
-    padding: 8px;
+    padding: var(--padding-8px);
   }
   /* blog page */
   .blogs-section {
@@ -98,7 +98,7 @@
   /* Contact page */
   .form-container {
     grid-template-columns: auto;
-    padding: 8px;
+    padding: var(--padding-8px);
   }
   .form-aside {
     grid-row: 1/-1;

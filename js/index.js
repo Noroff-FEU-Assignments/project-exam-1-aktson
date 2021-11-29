@@ -11,27 +11,27 @@ async function getPosts(url) {
     try {
         const response = await fetch(url);
         const results = await response.json();
-        
+
         results.forEach(result => {
             creatHtml(result)
         })
-    } 
+    }
     catch (error) {
         displayMsg(error, "error-msg")
-        console.log(error)     
+        console.log(error)
     }
 }
 getPosts(postsEmbedUrl)
 
 //function to create html and then call it inside async function
 function creatHtml(result) {
-     
+
     carouselContainer.innerHTML +=
         `<a href= "../blog-specific-page.html?id=${result.id}" class="blog">
             <img src="${result.jetpack_featured_media_url}" alt="${result}" />
             <p>${result.title.rendered}</p>
         </a>
-        `;   
+        `;
 }
 
 
@@ -43,8 +43,8 @@ const deviceavailabelWidth = window.screen.availWidth;
 
 function slideLeft() {
     carouselContainer.scrollBy({
-        top:0,
-        left:-(carouselContainer.clientWidth),
+        top: 0,
+        left: -(carouselContainer.clientWidth),
         behavior: 'smooth'
     });
 }
@@ -52,9 +52,9 @@ function slideLeft() {
 function slideRight() {
 
     carouselContainer.scrollBy({
-        top:0,
-        left:carouselContainer.clientWidth,
+        top: 0,
+        left: carouselContainer.clientWidth,
         behavior: 'smooth'
     });
 }
-   
+

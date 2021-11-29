@@ -1,13 +1,11 @@
-/* Contact page */
-.introduction {
-  height: 10vh;
-  text-align: center;
-}
+/* Contact page main*/
 .contact-main {
   flex-direction: column;
   justify-content: center;
   margin: 110px auto;
 }
+
+/* form container */
 .form-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -28,6 +26,7 @@ textarea {
   border: none;
   border-bottom: 1px solid black;
 }
+/* form aside */
 .form-aside {
-  padding: var(--padding-global);
+  padding: var(--padding-16px);
 }
