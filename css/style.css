@@ -72,9 +72,9 @@ h3 {
   padding-bottom: 10px;
 }
 p {
-  line-height: 1.4em;
-  font-size: 1.2em;
-  margin-bottom: 0.8em;
+  line-height: 1.7em;
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
 }
 
 /* global header */
@@ -399,6 +399,7 @@ form {
 form input,
 textarea {
   border: none;
+  border-bottom: 1px solid black;
 }
 
 /* global flex and grid*/
@@ -466,7 +467,6 @@ textarea {
 }
 
 .date {
-  font-style: italic;
   font-size: 0.9em;
   margin-top: 20px;
 }

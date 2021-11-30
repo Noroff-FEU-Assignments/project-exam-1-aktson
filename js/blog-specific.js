@@ -115,7 +115,7 @@ async function getComments() {
 
     const response = await fetch(commentUrl);
     const results = await response.json();
-
+    console.log(results)
     let count = 10;
     for (let i = 0; i <= count; i++) {
         recentComntContainer.innerHTML += ` 

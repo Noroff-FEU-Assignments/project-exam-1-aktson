@@ -1,7 +1,7 @@
 // baseurl
 const baseUrl = `https://ankson.no/ankson-blog/wp-json/wp/v2/`;
 const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=12&_embed";
-const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzNzU3MDc2OSwibmJmIjoxNjM3NTcwNzY5LCJleHAiOjE2MzgxNzU1NjksImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.6kUomlZ_z6XcHccOXuK6upZjZJzkZEkYqJI5PS-NQZs";
+const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTYzODMwNDU3MiwibmJmIjoxNjM4MzA0NTcyLCJleHAiOjE2Mzg5MDkzNzIsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.aO2pIOKPm97RlJkU0aBnD_LaURaQQ2tl-dFX5ZTHhXQ";
 
 //hamburger onclick event 
 const hamburger = document.querySelector(".hamburger");
