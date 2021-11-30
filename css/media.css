@@ -76,11 +76,15 @@
   }
   .to-top-btn {
     right: 5px;
-    top: 20px;
-    font-size: 1.2em;
+    bottom: 135px;
+    font-size: 1.3em;
   }
   .msg-container {
     top: 51px;
+  }
+  .subscribe-form {
+    background-position: center top;
+    height: 70vh;
   }
   /* homepage */
   .testinomies {
@@ -142,6 +146,10 @@
   .msg-container {
     top: 100px;
   }
+  .subscribe-form {
+    background-position: center top;
+    height: 50vh;
+  }
 
   /* contact page */
   .contact-main {
@@ -161,5 +169,9 @@
   .intro-sec {
     margin: 60px 0 60px 0px;
     height: 80vh;
+  }
+  .subscribe-form {
+    background-position: center top;
+    height: 50vh;
   }
 }
