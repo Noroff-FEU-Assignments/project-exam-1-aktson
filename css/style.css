@@ -279,6 +279,7 @@ footer p {
 .subscribe-form h3 {
   border-bottom: none;
   font-size: 1.8em;
+  color: #000;
 }
 .subscribe-container {
   justify-content: center;
