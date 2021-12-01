@@ -35,61 +35,18 @@ function checkInputValue(input, inputContainer, labelContainer, msg) {
         inputContainer.classList.add("success");
     }
 }
-// submit event on form
-// form.addEventListener("submit", postFormData);
+// submit event on form with async function 1. first checks value and gives error if input are not filled and if statement checks all inputs matches the length if passed, then runs async function to post data
 
-// async function postFormData(e) {
+form.addEventListener("submit", postFormData)
 
-//     e.preventDefault();
-
-//     checkInputValue(checkLength(name.value, 5), name, namelabel, `name must be atleast 5 characters`);
-//     checkInputValue(checkValidEmail(email.value), email, emaillabel, "email not valid");
-//     checkInputValue(checkLength(subject.value, 15), subject, subjectlabel, `subject must be atleast 15 characters`);
-//     checkInputValue(checkLength(message.value, 25), message, messagelabel, `message must be atleast 25 characters`);
-//     displayMsg("one or more fields are missing", "error-msg");
-
-//     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
-
-//         try {
-//             const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/121/feedback";
-//             const response = await fetch(postUrl, {
-//                 method: "post",
-//                 headers: {
-//                     "Content-Type": "multipart/form-data",
-//                     "Authorization": `Bearer ${jwtApiToken}`,
-//                 },
-//                 body: new FormData(form),
-//             })
-//             // const result = await response.json();
-//             console.log(response);
-
-//         }
-//         catch (error) {
-//             displayMsg("", "error-msg");
-//             console.log(error);
-//         }
-
-//         displayMsg("Your message was sent successfully", "success-msg");
-//         form.reset();
-//         removeSuccessMsg();
-//     }
-// }
-
-// post contact form data
-// async function postFormData(e) {
-
-// }
-
-
-// postFormData event;
-form.onsubmit = async (e) => {
+async function postFormData(e) {
     e.preventDefault();
 
     checkInputValue(checkLength(name.value, 5), name, namelabel, `name must be atleast 5 characters`);
     checkInputValue(checkValidEmail(email.value), email, emaillabel, "email not valid");
     checkInputValue(checkLength(subject.value, 15), subject, subjectlabel, `subject must be atleast 15 characters`);
     checkInputValue(checkLength(message.value, 25), message, messagelabel, `message must be atleast 25 characters`);
-    displayMsg("one or more fields are missing", "error-msg");
+    displayMsg("One or more fields are missing", "error-msg");
 
     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
 
@@ -106,7 +63,6 @@ form.onsubmit = async (e) => {
                 body: formData
             });
 
-            console.log(response)
             form.reset();
             displayMsg("Your message was sent successfully", "success-msg");
             removeSuccessMsg();
@@ -115,4 +71,5 @@ form.onsubmit = async (e) => {
             console.error(error);
         }
     }
+
 }

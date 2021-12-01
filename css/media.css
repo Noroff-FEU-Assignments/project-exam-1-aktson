@@ -27,7 +27,7 @@
     z-index: 50;
   }
   .navbar::before {
-    top: 50px;
+    top: 25px;
   }
   .nav-search-container {
     background-color: white;
