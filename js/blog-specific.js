@@ -11,7 +11,6 @@ async function getBlog() {
     try {
         const idUrl = baseUrl + `posts/${blogId}?_embed`;
 
-
         const response = await fetch(idUrl);
         const result = await response.json();
 
@@ -68,8 +67,7 @@ form.addEventListener("submit", postComments);
 
 function postComments(e) {
     e.preventDefault();
-    postCommentsApiCall()
-
+    postCommentsApiCall();
 }
 
 const commentUrl = baseUrl + `comments?post=${blogId}`;
@@ -100,6 +98,7 @@ async function postCommentsApiCall() {
 
             displayMsg("Your comment successfully posted!!", "success-msg");
             form.reset();
+            // getComments();
             removeSuccessMsg();
         }
         catch (error) {
@@ -112,22 +111,26 @@ async function postCommentsApiCall() {
 
 const recentComntContainer = document.querySelector(".recent-comments")
 async function getComments() {
-
-    const response = await fetch(commentUrl);
-    const results = await response.json();
-    console.log(results)
-    let count = 10;
-    for (let i = 0; i <= count; i++) {
-        recentComntContainer.innerHTML += ` 
-            <div class="flex comment-header">
-                <span><i class="fas fa-user-circle"></i></span>
-                <div>
-                    <p>${results[i].author_name.toUpperCase()}</p>
-                    <p>${results[i].date.toLocaleString()}</p>
-                 </div>
-            </div>
-            <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
+    try {
+        const response = await fetch(commentUrl);
+        const results = await response.json();
+        console.log(results)
+        let count = 10;
+        for (let i = 0; i <= count; i++) {
+            recentComntContainer.innerHTML += ` 
+                <div class="flex comment-header">
+                    <span><i class="fas fa-user-circle"></i></span>
+                    <div>
+                        <p>${results[i].author_name.toUpperCase()}</p>
+                        <p>${results[i].date.toLocaleString()}</p>
+                    </div>
+                </div>
+                <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
+        }
+    }
+    catch (error) {
+        console.log(error)
     }
 }
 
-getComments();
+getComments()
