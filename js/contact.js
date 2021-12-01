@@ -1,9 +1,8 @@
-const form = document.querySelector("form");
-const name = document.querySelector("#name");
-const email = document.querySelector("#email");
-const subject = document.querySelector("#subject");
-const message = document.querySelector("#message");
-
+const form = document.querySelector("#feedback-form");
+const name = document.querySelector("#your-name");
+const email = document.querySelector("#your-email");
+const subject = document.querySelector("#your-subject");
+const message = document.querySelector("#your-message");
 
 // const email = document.querySelector("form.email");
 const nameSpan = document.querySelector(".name-span");
@@ -16,7 +15,9 @@ const messageSpan = document.querySelector(".message-span");
 form.addEventListener("submit", checkForm);
 
 
+
 function checkForm(e) {
+
     e.preventDefault();
 
     checkInputValue(checkLength(name.value, 5), name, nameSpan, `name must be atleast 5 characters`);
@@ -24,11 +25,11 @@ function checkForm(e) {
     checkInputValue(checkLength(subject.value, 15), subject, subjectSpan, `subject must be atleast 15 characters`);
     checkInputValue(checkLength(message.value, 25), message, messageSpan, `message must be atleast 25 characters`);
     displayMsg("one or more fields are missing", "error-msg");
-    
+
     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
 
         displayMsg("Your message was sent successfully", "success-msg");
-        postFormData(); 
+        postFormData();
         form.reset();
         removeSuccessMsg();
     }
@@ -58,28 +59,31 @@ function checkInputValue(input, inputContainer, spanContainer, msg) {
         inputContainer.classList.add("success");
     }
 }
+// const data = {
+//     "your-name": `${name.value}`,
+//     "your-email": `${email.value}`,
+//     "your-subject": `${subject.value}`,
+//     "your-message": `${message.value}`
+// }
 
 
+console.log(form)
 // post contact form data
-async function postFormData () {
-    const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/30/feedback/";
+async function postFormData() {
+
+    const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/30/feedback";
     const response = await fetch(postUrl, {
         method: "post",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization":`Bearer ${jwtApiToken}`,
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${jwtApiToken}`,
         },
-        body:JSON.stringify ({
-        
-            "your-name": name.value,
-            "your-email": email.value,
-            "your-subject": subject.value,
-            "your-message": message.value
-        }) 
+        body: new FormData(form),
     })
     const result = await response.json();
     console.log(result);
 }
 
 postFormData();
+
 
