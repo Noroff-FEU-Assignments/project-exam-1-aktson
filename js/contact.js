@@ -10,29 +10,8 @@ const emaillabel = document.querySelector(".email-label");
 const subjectlabel = document.querySelector(".subject-label");
 const messagelabel = document.querySelector(".message-label");
 
-// submit event on form
-form.addEventListener("submit", checkForm);
 
-function checkForm(e) {
-
-    e.preventDefault();
-
-    checkInputValue(checkLength(name.value, 5), name, namelabel, `name must be atleast 5 characters`);
-    checkInputValue(checkValidEmail(email.value), email, emaillabel, "email not valid");
-    checkInputValue(checkLength(subject.value, 15), subject, subjectlabel, `subject must be atleast 15 characters`);
-    checkInputValue(checkLength(message.value, 25), message, messagelabel, `message must be atleast 25 characters`);
-    displayMsg("one or more fields are missing", "error-msg");
-
-    if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
-
-        displayMsg("Your message was sent successfully", "success-msg");
-        postFormData();
-        form.reset();
-        removeSuccessMsg();
-    }
-}
-
-// function to check length of entered characheters, takes two value first for input value and second for number of characters
+// // function to check length of entered characheters, takes two value first for input value and second for number of characters
 function checkLength(input, len) {
     if (input.trim().length >= len) {
         return true
@@ -56,32 +35,84 @@ function checkInputValue(input, inputContainer, labelContainer, msg) {
         inputContainer.classList.add("success");
     }
 }
+// submit event on form
+// form.addEventListener("submit", postFormData);
 
+// async function postFormData(e) {
 
+//     e.preventDefault();
+
+//     checkInputValue(checkLength(name.value, 5), name, namelabel, `name must be atleast 5 characters`);
+//     checkInputValue(checkValidEmail(email.value), email, emaillabel, "email not valid");
+//     checkInputValue(checkLength(subject.value, 15), subject, subjectlabel, `subject must be atleast 15 characters`);
+//     checkInputValue(checkLength(message.value, 25), message, messagelabel, `message must be atleast 25 characters`);
+//     displayMsg("one or more fields are missing", "error-msg");
+
+//     if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
+
+//         try {
+//             const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/121/feedback";
+//             const response = await fetch(postUrl, {
+//                 method: "post",
+//                 headers: {
+//                     "Content-Type": "multipart/form-data",
+//                     "Authorization": `Bearer ${jwtApiToken}`,
+//                 },
+//                 body: new FormData(form),
+//             })
+//             // const result = await response.json();
+//             console.log(response);
+
+//         }
+//         catch (error) {
+//             displayMsg("", "error-msg");
+//             console.log(error);
+//         }
+
+//         displayMsg("Your message was sent successfully", "success-msg");
+//         form.reset();
+//         removeSuccessMsg();
+//     }
+// }
 
 // post contact form data
-async function postFormData(e) {
-    const formElement = document.querySelector("#feedback-form")
-    const formData = new FormData(formElement);
-    formData.append("your-name", name.value)
-    formData.append("your-email", email.value)
-    formData.append("your-subject", subject.value)
-    formData.append("your-message", message.value)
+// async function postFormData(e) {
 
-    console.log(formData)
+// }
 
-    const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/121/feedback";
-    const response = await fetch(postUrl, {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${jwtApiToken}`,
-        },
-        body: JSON.stringify(formData),
-    })
-    const result = await response.json();
-    console.log(result);
+
+// postFormData event;
+form.onsubmit = async (e) => {
+    e.preventDefault();
+
+    checkInputValue(checkLength(name.value, 5), name, namelabel, `name must be atleast 5 characters`);
+    checkInputValue(checkValidEmail(email.value), email, emaillabel, "email not valid");
+    checkInputValue(checkLength(subject.value, 15), subject, subjectlabel, `subject must be atleast 15 characters`);
+    checkInputValue(checkLength(message.value, 25), message, messagelabel, `message must be atleast 25 characters`);
+    displayMsg("one or more fields are missing", "error-msg");
+
+    if (checkLength(name.value, 5) && checkValidEmail(email.value) && checkLength(subject.value, 15) && checkLength(message.value, 25)) {
+
+        const form = e.currentTarget;
+        const url = form.action;
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Authorization": `Bearer ${jwtApiToken}`,
+                },
+                body: formData
+            });
+
+            console.log(response)
+            form.reset();
+            displayMsg("Your message was sent successfully", "success-msg");
+            removeSuccessMsg();
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
 }
-
-postFormData();
-
