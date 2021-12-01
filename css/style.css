@@ -461,11 +461,10 @@ textarea {
 }
 
 /* global spans, date, */
-.all-span {
+.all-label {
   margin-bottom: 20px;
   border: none;
 }
-
 .date {
   font-size: 0.9em;
   margin-top: 20px;

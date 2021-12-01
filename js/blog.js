@@ -31,7 +31,7 @@ function creatHtml(result) {
     const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
     blogsContainer.innerHTML +=
-        `<a href= "../blog-specific-page.html?id=${result.id}" class="article " aria-label = "link to ${result.title.rendered}"> 
+        `<a href= "../blog-specific-page.html?id=${result.id}" class="article " "> 
             <img src="${result.jetpack_featured_media_url}" alt="${altText}" />
             <div>
                 <p class="date">${date}</p>

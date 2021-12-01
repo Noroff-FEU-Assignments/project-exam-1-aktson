@@ -72,20 +72,20 @@
         <h1>Contact us!!! Fill the form. let us know..</h1>
         <!-- form  -->
         <div class="form-container">
-          <form id="feedback-form">
-            <input type="text" name="your-name" placeholder="name" id="your-name" />
-            <label for="your-name" class="name-span all-span"></label>
+          <form id="feedback-form" method="post">
+            <input id="your-name" type="text" name="your-name" placeholder="name" />
+            <label for="your-name" class="name-label all-label"></label>
 
-            <input type="email" name="your-email" placeholder="e-mail" id="your-email" />
-            <label for="your-emil" class="email-span all-span"></label>
+            <input id="your-email" type="email" name="your-email" placeholder="e-mail" />
+            <label for="your-email" class="email-label all-label"></label>
 
-            <input type="text" name="your-subject" placeholder="subject" id="your-subject" />
-            <label for="your-subject" class="subject-span all-span"></label>
+            <input id="your-subject" type="text" name="your-subject" placeholder="subject" />
+            <label for="your-subject" class="subject-label all-label"></label>
 
-            <textarea type="text" name="your-message" id="your-message" cols="10" rows="6" placeholder="message"></textarea>
-            <label for="your-message" class="message-span all-span"></label>
+            <textarea id="your-message" name="your-message" cols="10" rows="6" placeholder="message"></textarea>
+            <label for="your-message" class="message-label all-label"></label>
 
-            <input type="submit" class="cta" value="send" />
+            <button type="submit" class="cta">Send</button>
           </form>
           <!-- aside of form -->
           <div class="form-aside">
