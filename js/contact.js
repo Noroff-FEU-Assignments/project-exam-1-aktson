@@ -68,8 +68,9 @@ async function postFormData(e) {
             removeSuccessMsg();
         }
         catch (error) {
-            console.error(error);
+            console.log(error);
         }
     }
-
 }
+
+
