@@ -66,14 +66,10 @@ function checkInputValue(input, inputContainer, spanContainer, msg) {
 //     "your-message": `${message.value}`
 // }
 
-
-console.log(form)
 // post contact form data
 async function postFormData() {
-    const formdata = new FormData(form)
-    console.log(formdata)
 
-    const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/30/feedback";
+    const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/121/feedback";
     const response = await fetch(postUrl, {
         method: "post",
         headers: {
