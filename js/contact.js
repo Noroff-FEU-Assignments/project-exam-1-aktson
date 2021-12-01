@@ -70,6 +70,8 @@ function checkInputValue(input, inputContainer, spanContainer, msg) {
 console.log(form)
 // post contact form data
 async function postFormData() {
+    const formdata = new FormData(form)
+    console.log(formdata)
 
     const postUrl = "https://ankson.no/ankson-blog/wp-json/contact-form-7/v1/contact-forms/30/feedback";
     const response = await fetch(postUrl, {
