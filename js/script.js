@@ -27,7 +27,7 @@ const searchResultContainer = document.querySelector(".search-result-container")
 const searchIcon = document.querySelector(".fa-search");
 const searchInput = document.querySelector("#search");
 
-searchInput.addEventListener("keyup", getSearchResult);
+// searchInput.addEventListener("keyup", getSearchResult);
 searchIcon.addEventListener("click", getSearchResult);
 
 // get search query async function
