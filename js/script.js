@@ -61,7 +61,6 @@ async function getSearchResult() {
     });
 }
 
-
 // page on load loader function
 const loader = document.querySelector(".loader");
 const main = document.querySelector("main");
