@@ -1,3 +1,19 @@
+//async function to fetch about section content
+
+const aboutContainer = document.querySelector(".about-homepage");
+const homePageUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/pages/2";
+
+async function getAboutPage() {
+    const response = await fetch(homePageUrl);
+    const result = await response.json();
+    aboutContainer.innerHTML = `
+    <h2>${result.title.rendered}</h2>
+    <p>${result.content.rendered}</p>
+    `
+    console.log(result)
+}
+getAboutPage();
+
 // carousel home section
 const leftBtn = document.querySelector(".left-btn");
 const rightBtn = document.querySelector(".right-btn");
@@ -25,11 +41,13 @@ getPosts(postsEmbedUrl)
 
 //function to create html and then call it inside async function
 function creatHtml(result) {
+    const date = new Date(result.date).toDateString();
 
     carouselContainer.innerHTML +=
         `<a href= "../blog-specific-page.html?id=${result.id}" class="blog">
             <img src="${result.jetpack_featured_media_url}" alt="${result}" />
             <p>${result.title.rendered}</p>
+            <p class = "date"><i>${date}</i></p>
         </a>
         `;
 }
