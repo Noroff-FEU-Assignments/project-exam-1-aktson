@@ -75,4 +75,28 @@ function slideRight() {
         behavior: 'smooth'
     });
 }
+const commentUrl = baseUrl + `comments?posts`
+async function getComments() {
+    try {
+        const response = await fetch(commentUrl);
+        const results = await response.json();
+        console.log(results)
+        let count = 10;
+        for (let i = 0; i <= count; i++) {
+            recentComntContainer.innerHTML += ` 
+                <div class="flex comment-header">
+                    <span><i class="fas fa-user-circle"></i></span>
+                    <div>
+                        <p>${results[i].author_name.toUpperCase()}</p>
+                        <p>${results[i].date.toLocaleString()}</p>
+                    </div>
+                </div>
+                <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
+        }
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
 
+getComments()

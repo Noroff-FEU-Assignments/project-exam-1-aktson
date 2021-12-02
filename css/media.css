@@ -39,14 +39,22 @@
     transition: 1s transform;
     transform: translateY(-100%);
     box-shadow: var(--box-shadow);
-    flex-direction: column;
-    padding: var(--padding-1em);
+    flex-direction: column-reverse;
+    padding: 8px;
   }
   .show-nav {
     transform: translateY(0px);
   }
+  #search {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .fa-search {
+    top: 22px;
+  }
   .search-result-container {
-    left: -80px;
+    left: -50%s;
+    width: fit-content;
   }
   nav ul {
     display: flex;
@@ -129,6 +137,9 @@
     justify-content: center;
     margin-bottom: 80px;
   }
+  .search-result-container {
+    left: -90%;
+  }
   .intro-sec {
     margin: 60px 0 60px 0px;
     height: 70vh;
@@ -173,5 +184,8 @@
   .subscribe-form {
     background-position: center top;
     height: 50vh;
+  }
+  .search-result-container {
+    left: -90%;
   }
 }
