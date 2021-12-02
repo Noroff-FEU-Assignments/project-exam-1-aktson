@@ -28,7 +28,7 @@ const searchIcon = document.querySelector(".fa-search");
 const searchInput = document.querySelector("#search");
 
 searchInput.addEventListener("keyup", getSearchResult);
-// searchIcon.addEventListener("click", getSearchResult);
+searchIcon.addEventListener("click", getSearchResult);
 
 // get search query async function
 async function getSearchResult() {
@@ -42,19 +42,20 @@ async function getSearchResult() {
     searchResultContainer.innerHTML = "";
     searchResult.forEach(result => {
 
+        if (searchResult.length <= 0) {
+            searchResultContainer.classList.remove("hidden");
+            searchResultContainer.innerHTML = '<p class= "error"> Nothing has been found</p>';
+        }
         if (!searchInput.value) {
             searchResultContainer.innerHTML = "";
             searchResultContainer.classList.add("hidden");
         }
-        if (!result) {
-            searchResultContainer.innerHTML = "<p> Nothing has been found</p>";
-            searchResultContainer.classList.remove("hidden");
-        }
+
         else if (searchInput.value) {
             searchResultContainer.classList.remove("hidden");
             searchResultContainer.innerHTML += `
                 <a href= "../blog-specific-page.html?id=${result.id}" class="search-content">
-               <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
+                <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
                 </a>`
         }
     });
