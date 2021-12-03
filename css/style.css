@@ -442,7 +442,7 @@ textarea {
 }
 .msg-container-btn {
   position: absolute;
-  top: 0px;
+  top: 15px;
   right: 20px;
   font-size: 1.4em;
   border: none;
