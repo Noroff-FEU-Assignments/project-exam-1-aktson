@@ -10,7 +10,6 @@ async function getAboutPage() {
     <h2>${result.title.rendered}</h2>
     <p>${result.content.rendered}</p>
     `
-    console.log(result)
 }
 getAboutPage();
 
