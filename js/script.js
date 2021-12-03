@@ -79,17 +79,24 @@ document.onreadystatechange = function () {
 }
 
 // global error container to show errors
-const msgContainer = document.querySelector(".msg-container");
+const msgContainer = document.querySelector(".msg-container-content");
+const closeErrorBtn = document.querySelector(".msg-container-btn");
 
 // function to shor error on error container
 function displayMsg(msg, cls) {
     msgContainer.classList.remove("hidden");
+    closeErrorBtn.classList.remove("hidden");
     if (!msg) {
         msgContainer.innerHTML = `<p class ="${cls}"> Opps..something went wrong please try something else</p>`
     } else {
         msgContainer.innerHTML = `<p class ="${cls}"> ${msg}</p>`
     }
 }
+//function to close error msg
+closeErrorBtn.addEventListener("click", (e) => {
+    msgContainer.classList.add("hidden");
+    closeErrorBtn.classList.add("hidden");
+})
 
 // after user succesfully sends data funtion under will remove message after 3 seconds that user can  continue to navigate or read
 function removeSuccessMsg() {
@@ -177,4 +184,5 @@ async function getBlogByCategory() {
         console.log(error)
     }
 }
+
 
