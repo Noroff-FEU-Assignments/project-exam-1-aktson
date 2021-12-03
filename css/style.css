@@ -444,9 +444,9 @@ textarea {
   position: absolute;
   top: 0px;
   right: 0px;
-  font-size: 1em;
-  border: 1px solid white;
-  padding: 4px;
+  font-size: 1.4em;
+  border: none;
+  padding: 2px;
   background-color: transparent;
   color: white;
   cursor: pointer;
