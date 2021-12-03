@@ -102,6 +102,7 @@ async function postCommentsApiCall() {
             removeSuccessMsg();
         }
         catch (error) {
+            displayMsg("", "error-msg")
             console.log(error)
         }
     }
@@ -128,7 +129,6 @@ async function getComments() {
         }
     }
     catch (error) {
-        displayMsg("", "error-msg")
         console.log(error)
     }
 }
