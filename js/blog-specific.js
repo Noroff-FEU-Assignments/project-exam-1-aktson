@@ -70,7 +70,6 @@ function postComments(e) {
     postCommentsApiCall();
 }
 
-
 const commentUrl = baseUrl + `comments?post=${blogId}`;
 
 async function postCommentsApiCall() {
@@ -103,7 +102,6 @@ async function postCommentsApiCall() {
             removeSuccessMsg();
         }
         catch (error) {
-            displayMsg("", "error-msg")
             console.log(error)
         }
     }
