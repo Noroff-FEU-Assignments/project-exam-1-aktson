@@ -37,6 +37,7 @@ async function getBlog() {
 
         closeImgBtn.onclick = function () {
             imageModal.style.display = "none";
+            closeImgBtn.style.display = "none";
         }
 
         receivedImage.onclick = function expandModal(e) {

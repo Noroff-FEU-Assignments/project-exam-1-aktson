@@ -124,6 +124,10 @@
     margin: 80px 10px 10px 10px;
     display: none;
   }
+
+  .img-modal img {
+    max-width: 100%;
+  }
 }
 /* media queries tablets  */
 @media (min-width: 637px) and (max-width: 820px) {
