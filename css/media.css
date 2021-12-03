@@ -90,7 +90,9 @@
   .msg-container {
     top: 51px;
   }
-
+  .msg-container-btn {
+    right: 10px;
+  }
   .subscribe-form {
     background-position: center top;
     height: 70vh;
