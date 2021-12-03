@@ -38,6 +38,18 @@
   transition: 1s ease;
   position: relative;
 }
+.img-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 150;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
 
 .received-image {
   cursor: pointer;

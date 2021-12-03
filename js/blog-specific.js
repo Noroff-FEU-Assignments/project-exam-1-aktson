@@ -33,10 +33,16 @@ async function getBlog() {
         //onclick function for image
         const receivedImage = document.querySelector(".received-image");
         const imageModal = document.querySelector(".img-modal");
+        const closeImgBtn = document.querySelector(".img-close-btn");
+
+        closeImgBtn.onclick = function () {
+            imageModal.style.display = "none";
+        }
 
         receivedImage.onclick = function expandModal(e) {
-            imageModal.style.display = "flex"
+            imageModal.style.display = "flex";
             imageModal.innerHTML = `<img src= "${image}">`;
+            closeImgBtn.style.display = "block";
 
         }
 
