@@ -156,7 +156,6 @@ nav a {
   position: absolute;
   box-shadow: var(--box-shadow);
   width: 300px;
-
   padding: var(--padding-16px);
   background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur;

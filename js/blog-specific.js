@@ -70,6 +70,7 @@ function postComments(e) {
     postCommentsApiCall();
 }
 
+
 const commentUrl = baseUrl + `comments?post=${blogId}`;
 
 async function postCommentsApiCall() {
@@ -129,6 +130,7 @@ async function getComments() {
         }
     }
     catch (error) {
+        displayMsg("", "error-msg")
         console.log(error)
     }
 }

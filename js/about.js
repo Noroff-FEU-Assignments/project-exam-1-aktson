@@ -1,5 +1,5 @@
 const aboutContainer = document.querySelector(".about-sec");
-const aboutUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/pages/24";
+const aboutUrl = baseUrl + "pages/24";
 
 async function getAboutPage() {
     const response = await fetch(aboutUrl);
