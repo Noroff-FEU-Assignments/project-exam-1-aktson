@@ -443,7 +443,7 @@ textarea {
 .msg-container-btn {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 10px;
   font-size: 1.4em;
   border: none;
   padding: 2px;
