@@ -35,24 +35,22 @@ async function getBlog() {
         const imageModal = document.querySelector(".img-modal");
         const closeImgBtn = document.querySelector(".img-close-btn");
 
-        closeImgBtn.onclick = function () {
-            imageModal.style.display = "none";
-            closeImgBtn.style.display = "none";
-        }
-
         receivedImage.onclick = function expandModal(e) {
             imageModal.style.display = "flex";
             imageModal.innerHTML = `<img src= "${image}">`;
             closeImgBtn.style.display = "block";
-
         }
-
         //to close clicked image
         window.onclick = function (e) {
             if (e.target.classList.contains("img-modal")) {
                 imageModal.style.display = "none";
             }
         }
+        closeImgBtn.onclick = function () {
+            imageModal.style.display = "none";
+            closeImgBtn.style.display = "none";
+        }
+
     }
     catch (error) {
         displayMsg(error, "error-msg");
