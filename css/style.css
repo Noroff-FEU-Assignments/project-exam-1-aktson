@@ -442,11 +442,11 @@ textarea {
 }
 .msg-container-btn {
   position: absolute;
-  top: 10px;
+  top: 18px;
   right: 10px;
-  font-size: 1.5em;
-  border: none;
-  padding: var(--padding-8px);
+  font-size: 1em;
+  border: 1px solid white;
+  padding: 4px;
   background-color: transparent;
   color: white;
   cursor: pointer;
