@@ -73,6 +73,7 @@ form.addEventListener("submit", postComments);
 function postComments(e) {
     e.preventDefault();
     postCommentsApiCall();
+
 }
 
 const commentUrl = baseUrl + `comments?post=${blogId}`;
@@ -120,18 +121,17 @@ async function getComments() {
         const response = await fetch(commentUrl);
         const results = await response.json();
         console.log(results)
-        let count = 10;
-        for (let i = 0; i <= count; i++) {
+        results.forEach(result => {
             recentComntContainer.innerHTML += ` 
-                <div class="flex comment-header">
-                    <span><i class="fas fa-user-circle"></i></span>
-                    <div>
-                        <p>${results[i].author_name.toUpperCase()}</p>
-                        <p>${results[i].date.toLocaleString()}</p>
+                    <div class="flex comment-header">
+                        <span><i class="fas fa-user-circle"></i></span>
+                        <div>
+                            <p>${result.author_name.toUpperCase()}</p>
+                            <p>${result.date.toLocaleString()}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="user-comment"><p>${results[i].content.rendered}</p></div>`
-        }
+                    <div class="user-comment"><p>${result.content.rendered}</p></div>`
+        })
     }
     catch (error) {
         console.log(error)
