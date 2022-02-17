@@ -63,16 +63,16 @@ export function getSearchResult(results) {
 
 // page on load loader function
 const loader = document.querySelector(".loader");
-const main = document.querySelector("main");
+const body = document.querySelector("body");
 
 document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
 
         loader.style.visibility = "visible"
-        main.style.display = "none";
+        body.style.display = "none";
     } else {
         loader.style.display = "none";
-        main.style.display = "block"
+        body.style.display = "grid";
 
     }
 }
