@@ -1,5 +1,6 @@
-import { getSearchResult } from "./script.js";
+import { getSearchResult } from "./generalFunctions/getSearchResult.js";
 import { baseUrl, postsEmbedUrl } from "./script.js";
+
 
 //async function to fetch about section content
 
@@ -29,6 +30,7 @@ async function getPosts(url) {
         const results = await response.json();
         creatHtml(results)
         getSearchResult(results)
+        console.log(results)
     }
     catch (error) {
         displayMsg(error, "error-msg")

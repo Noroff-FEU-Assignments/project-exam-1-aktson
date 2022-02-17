@@ -1,7 +1,15 @@
+import { getBlogByCategory } from "./generalFunctions/getBlogByCategory.js";
+
+
 // baseurl
 export const baseUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/";
 export const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=12&_embed";
 const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTY0Mjk4MTIzMiwibmJmIjoxNjQyOTgxMjMyLCJleHAiOjE2NDM1ODYwMzIsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.tyZrGb2yTdKsm0E--KBPG5Ecp2xW2ox-SGayB7IRmJ8";
+
+
+//calling general functions
+getBlogByCategory();
+
 
 //hamburger onclick event 
 const hamburger = document.querySelector(".hamburger");
@@ -20,46 +28,6 @@ function showNav() {
         hamburger.style.transform = "rotate(180deg)";
     }
 }
-
-// get search query async function
-export function getSearchResult(results) {
-
-    //search icon event listner to show searc results   
-    const searchResultContainer = document.querySelector(".search-result-container");
-    const searchInput = document.querySelector("#search");
-
-    searchInput.addEventListener("keyup", () => {
-        const searchValue = event.target.value.trim().toLowerCase();
-        searchResultContainer.classList.add("hidden");
-        if (!searchValue) return;
-
-        const searchResult = results.filter(result => {
-            if (result.slug.includes(searchValue)) {
-                return true;
-            }
-        });
-        createSearchResult(searchResult);
-
-        if (searchResult.length === 0) {
-            searchResultContainer.innerHTML = "No results found";
-        }
-
-    });
-
-    //creat search result html 
-    function createSearchResult(results) {
-        searchResultContainer.innerHTML = "";
-        searchResultContainer.classList.remove("hidden")
-        results.forEach(result => {
-
-            searchResultContainer.innerHTML += `<a href= "../blog-specific-page.html?id=${result.id}" class="search-content">
-                                                 <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
-                                                </a>`
-        })
-    }
-}
-
-
 
 // page on load loader function
 const loader = document.querySelector(".loader");
@@ -143,45 +111,5 @@ function getSubscribeEmail(e) {
 }
 
 
-//get blogs by categories
-const asideContainer = document.querySelector(".aside-content");
-
-const categorySelect = document.querySelector("#category");
-
-categorySelect.addEventListener("change", getBlogByCategory);
-
-async function getBlogByCategory() {
-
-    try {
-        const url = baseUrl + `posts?categories=${categorySelect.value}`;
-
-        const response = await fetch(url);
-        const results = await response.json();
-
-        asideContainer.innerHTML = "";
-
-        if (!categorySelect.value) {
-            asideContainer.innerHTML = "";
-
-        }
-        else {
-            results.forEach(result => {
-
-                asideContainer.innerHTML += `
-                    <a href= "../blog-specific-page.html?id=${result.id}" class = "aside-content" >     
-                         <div class = "aside-grid-tablet-mobile aside-div">
-                             <p>${result.title.rendered}</p>
-                             <img src="${result.jetpack_featured_media_url}" alt ="" />
-                       
-                         </div>
-                    </a>`
-            });
-        }
-    }
-    catch (error) {
-        displayMsg("", "error-msg")
-        console.log(error)
-    }
-}
 
 
