@@ -55,7 +55,7 @@
         <div class="search-container">
           <label for="search"><i class="fas fa-search"></i></label>
           <input type="text" name="search" id="search" placeholder="search " />
-          <div class="search-result-container hidden"></div>
+          <div class="search-result-container hidden "></div>
         </div>
       </div>
 
@@ -70,7 +70,13 @@
       <div class="intro-text"><h1>Welcome to AnkSon blog!!!</h1></div>
     </section>
     <main>
-      <section class="about-homepage"></section>
+      <section class="about-homepage">  
+         <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div></section>
 
       <!-- latest post section -->
       <section class="latest-post-sec">
@@ -82,7 +88,13 @@
           </div>
         </div>
         <!-- carousel result container from api -->
-        <div class="flex carousel-container"></div>
+        <div class="flex carousel-container">
+          <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </section>
       <!-- testinomies -->
       <section class="grid-four-columns testinomies">
@@ -161,7 +173,8 @@
       <span></span>
       <span></span>
     </div>
-    <script src="js/script.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
+    
   </body>
 </html>

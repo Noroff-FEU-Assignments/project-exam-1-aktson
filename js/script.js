@@ -1,6 +1,6 @@
 // baseurl
-const baseUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/";
-const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=12&_embed";
+export const baseUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/";
+export const postsEmbedUrl = "https://ankson.no/ankson-blog/wp-json/wp/v2/posts/?per_page=12&_embed";
 const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYW5rc29uLm5vXC9hbmtzb24tYmxvZyIsImlhdCI6MTY0Mjk4MTIzMiwibmJmIjoxNjQyOTgxMjMyLCJleHAiOjE2NDM1ODYwMzIsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.tyZrGb2yTdKsm0E--KBPG5Ecp2xW2ox-SGayB7IRmJ8";
 
 //hamburger onclick event 
@@ -21,45 +21,45 @@ function showNav() {
     }
 }
 
-
-//search icon event listner to show searc results
-const searchResultContainer = document.querySelector(".search-result-container");
-const searchIcon = document.querySelector(".fa-search");
-const searchInput = document.querySelector("#search");
-
-searchInput.addEventListener("keyup", getSearchResult);
-searchIcon.addEventListener("click", getSearchResult);
-
 // get search query async function
-async function getSearchResult() {
+export function getSearchResult(results) {
 
-    const searchUrl = baseUrl + "posts/?_embed";
+    //search icon event listner to show searc results   
+    const searchResultContainer = document.querySelector(".search-result-container");
+    const searchInput = document.querySelector("#search");
 
-    const response = await fetch(searchUrl);
-    const results = await response.json();
+    searchInput.addEventListener("keyup", () => {
+        const searchValue = event.target.value.trim().toLowerCase();
+        searchResultContainer.classList.add("hidden");
+        if (!searchValue) return;
 
-    const searchResult = results.filter((result) => result.slug.includes(searchInput.value));
-    searchResultContainer.innerHTML = "";
-    searchResult.forEach(result => {
+        const searchResult = results.filter(result => {
+            if (result.slug.includes(searchValue)) {
+                return true;
+            }
+        });
+        createSearchResult(searchResult);
 
-        if (searchResult.length <= 0) {
-            searchResultContainer.classList.remove("hidden");
-            searchResultContainer.innerHTML = '<p class= "error"> Nothing has been found</p>';
+        if (searchResult.length === 0) {
+            searchResultContainer.innerHTML = "No results found";
         }
-        if (!searchInput.value) {
-            searchResultContainer.innerHTML = "";
-            searchResultContainer.classList.add("hidden");
-        }
 
-        else if (searchInput.value) {
-            searchResultContainer.classList.remove("hidden");
-            searchResultContainer.innerHTML += `
-                <a href= "../blog-specific-page.html?id=${result.id}" class="search-content">
-                <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
-                </a>`
-        }
     });
+
+    //creat search result html 
+    function createSearchResult(results) {
+        searchResultContainer.innerHTML = "";
+        searchResultContainer.classList.remove("hidden")
+        results.forEach(result => {
+
+            searchResultContainer.innerHTML += `<a href= "../blog-specific-page.html?id=${result.id}" class="search-content">
+                                                 <ul> <li>${result.title.rendered} <i class="fas fa-external-link-alt"></i></li></ul>
+                                                </a>`
+        })
+    }
 }
+
+
 
 // page on load loader function
 const loader = document.querySelector(".loader");
