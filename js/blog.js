@@ -2,7 +2,7 @@
 import { getBlogByCategory } from "./generalFunctions/getBlogByCategory.js";
 
 import { getPosts } from "./getPosts.js";
-
+import { isUndefined } from "./generalFunctions/isUndefined.js";
 
 // event listner to show 10 more posts 
 const viewMoreBtn = document.querySelector(".view-more");
@@ -12,14 +12,27 @@ console.log(viewMoreBtn)
 
 //creates html inside async function
 export function createBlogPageHtml(results) {
+
     const blogsContainer = document.querySelector(".blogs-section");
 
     blogsContainer.innerHTML = "";
 
     results.forEach(result => {
         const date = new Date(result.date).toDateString();
-        const altText = result._embedded["wp:featuredmedia"][0].alt_text;
-        const image = result.jetpack_featured_media_url;
+        // const altText = result._embedded["wp:featuredmedia"][0].alt_text;
+        // const image = result.jetpack_featured_media_url;
+
+
+        let altText = result._embedded["wp:featuredmedia"][0].alt_text;
+        let image = result.jetpack_featured_media_url;
+
+        if (isUndefined(altText)) {
+            altText = "Default alt text";
+            console.log(altText)
+        }
+        if (isUndefined(image)) {
+            image = "default-image.jpg";
+        }
 
         blogsContainer.innerHTML +=
             `<a href= "../blog-specific-page.html?id=${result.id}" class="article " "> 

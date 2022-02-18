@@ -9,7 +9,7 @@ export async function getPosts(createHtml) {
         createHtml(results)
     }
     catch (error) {
-        displayMsg(error, "error-msg")
+        displayMsg("Something went wrong, can't fetch posts!!", "error-msg")
         console.log(error)
     }
 
