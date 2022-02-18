@@ -7,8 +7,6 @@ import { isUndefined } from "./generalFunctions/isUndefined.js";
 // event listner to show 10 more posts 
 const viewMoreBtn = document.querySelector(".view-more");
 viewMoreBtn.addEventListener("click", getPosts(createBlogPageHtml));
-console.log(viewMoreBtn)
-
 
 //creates html inside async function
 export function createBlogPageHtml(results) {
