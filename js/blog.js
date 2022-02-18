@@ -31,7 +31,7 @@ export function createBlogPageHtml(results) {
             console.log(altText)
         }
         if (isUndefined(image)) {
-            image = "../images/testinomies/testinomy-1.jpg";
+            image = "../images/not-found.png";
         }
 
         blogsContainer.innerHTML +=
