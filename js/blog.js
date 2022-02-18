@@ -17,20 +17,25 @@ export function createBlogPageHtml(results) {
 
     results.forEach(result => {
         const date = new Date(result.date).toDateString();
-        // const altText = result._embedded["wp:featuredmedia"][0].alt_text;
-        // const image = result.jetpack_featured_media_url;
+        const altText = result._embedded["wp:featuredmedia"][0].alt_text;
+        const image = result.jetpack_featured_media_url;
 
 
-        let altText = result._embedded["wp:featuredmedia"][0].alt_text;
-        let image = result.jetpack_featured_media_url;
+        // let altText = "";
+        // let image = "";
 
-        if (isUndefined(altText)) {
-            altText = "Default alt text";
-            console.log(altText)
-        }
-        if (isUndefined(image)) {
-            image = "../images/not-found.png";
-        }
+        // if (isUndefined(result._embedded["wp:featuredmedia"][0].alt_text)) {
+        //     altText = "Default alt text";
+        //     console.log(altText)
+        // } else {
+        //     altText = result._embedded["wp:featuredmedia"][0].alt_text;
+        // }
+
+        // if (isUndefined(result.jetpack_featured_media_url)) {
+        //     image = "default-image.jpg";
+        // } else {
+        //     image = result.jetpack_featured_media_url;
+        // }
 
         blogsContainer.innerHTML +=
             `<a href= "../blog-specific-page.html?id=${result.id}" class="article " "> 
