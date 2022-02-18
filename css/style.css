@@ -218,13 +218,6 @@ main > section {
   margin: 40px auto 100px auto;
 }
 
-#category {
-  border: none;
-  outline: none;
-  padding: var(--padding-16px);
-  font-family: var(--paragraph-text-fonts);
-  font-size: 1.1em;
-}
 /* global footer */
 footer {
   grid-area: footer;

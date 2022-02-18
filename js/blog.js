@@ -18,11 +18,14 @@ export function createBlogPageHtml(results) {
 
     results.forEach(result => {
         const date = new Date(result.date).toDateString();
+
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
         blogsContainer.innerHTML +=
+
+
             `<a href= "../blog-specific-page.html?id=${result.id}" class="article " "> 
-            <img src="${result.jetpack_featured_media_url}" alt="${altText}" />
+            <img src="${result.jetpack_featured_media_url} " alt="${altText}" />
             <div>
                 <p class="date">${date}</p>
                 <h2>${result.title.rendered}</h2>
