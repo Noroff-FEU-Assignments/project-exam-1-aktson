@@ -6,7 +6,6 @@ import { getPosts } from "../getPosts.js";
 //get blogs by categories
 export function getBlogByCategory() {
     const categorySelect = document.querySelector("#category");
-    console.log(categorySelect)
 
     categorySelect.addEventListener("change", getbyCat);
 
@@ -17,11 +16,11 @@ export function getBlogByCategory() {
             const response = await fetch(catUrl);
             const results = await response.json();
 
+            if (!categorySelect.value) return;
+
             if (categorySelect.value === "") {
                 getPosts(createBlogPageHtml);
             }
-
-            if (!categorySelect.value) return;
 
             createBlogPageHtml(results);
 
@@ -31,5 +30,5 @@ export function getBlogByCategory() {
             console.log(error)
         }
     }
-    getbyCat();
+
 }
