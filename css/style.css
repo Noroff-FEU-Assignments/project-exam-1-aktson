@@ -27,12 +27,12 @@ body {
   display: grid;
   overflow-x: hidden;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "header header header header header"
-    "intro-sec intro-sec intro-sec intro-sec intro-sec"
-    "... main main main aside"
-    "footer footer footer footer footer";
+    "header header header header "
+    "intro-sec intro-sec intro-sec intro-sec "
+    "main main main  main"
+    "footer footer footer footer ";
 }
 
 /* global styling  */
@@ -217,37 +217,7 @@ main {
 main > section {
   margin: 40px auto 100px auto;
 }
-/* global aside */
-aside {
-  grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  padding: var(--padding-16px);
-  /* gap: 20px; */
-  justify-content: center;
-  align-self: flex-start;
-  margin: 150px 50px 100px 0;
-  box-shadow: var(--box-shadow);
-  background: var(--gray-color);
-}
-.aside-content {
-  padding: var(--padding-8px);
-}
 
-.aside-content img {
-  max-width: 100%;
-}
-.aside-div {
-  box-shadow: var(--box-shadow);
-  background-color: white;
-  padding: var(--padding-8px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-.aside-content p {
-  cursor: pointer;
-  text-decoration: underline;
-}
 #category {
   border: none;
   outline: none;
@@ -405,7 +375,6 @@ textarea {
 /* global flex and grid*/
 .flex {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
 }
 .grid-two-columns {

@@ -69,21 +69,14 @@
     </section>
     <!-- site main -->
     <main>
-      <section class="about-sec"></section>
+      <section class="about-sec">
+        <div class="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
     </main>
-    <!-- aside gets post from choosen categories -->
-    <aside class="popular-blogs">
-      <h3>Browse posts by categories</h3>
-      <label for="category" class="hidden">Categories</label>
-      <select name="category" id="category">
-        <option value="">Choose from category</option>
-        <option value="37">Food</option>
-        <option value="38">Programming</option>
-        <option value="39">General</option>
-        <option value="44">Workout/Sport</option>
-      </select>
-      <div class="aside-content"></div>
-    </aside>
     <!-- site footer -->
     <footer>
       <!-- form to subscribe -->
@@ -117,11 +110,11 @@
       <div class="to-top-btn"><i class="fas fa-chevron-circle-up"></i></div>
     </footer>
     <!-- loader for "on page load" where body is parent set relaive and loader  postions absolute-->
-    <div class="loader">
+    <!-- <div class="loader">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </div> -->
     <script src="js/about.js" type="module"></script>
     <script src="js/script.js" type="module"></script>
   </body>

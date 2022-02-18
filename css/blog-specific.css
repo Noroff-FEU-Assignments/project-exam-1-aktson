@@ -1,7 +1,7 @@
 /* main of blog specific page */
 .blog-specific {
   position: relative;
-  justify-self: normal;
+  justify-self: center;
   margin: 80px 0;
 }
 

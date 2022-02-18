@@ -1,3 +1,6 @@
+import { checkValidEmail, displayMsg } from "./script.js";
+
+
 const form = document.querySelector("#feedback-form");
 const name = document.querySelector("#your-name");
 const email = document.querySelector("#your-email");

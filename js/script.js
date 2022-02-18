@@ -1,4 +1,5 @@
 import { getBlogByCategory } from "./generalFunctions/getBlogByCategory.js";
+import { getSearchResult } from "./generalFunctions/getSearchResult.js";
 
 
 // baseurl
@@ -8,7 +9,7 @@ const jwtApiToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1
 
 
 //calling general functions
-getBlogByCategory();
+getSearchResult();
 
 
 //hamburger onclick event 
@@ -36,7 +37,7 @@ const body = document.querySelector("body");
 document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
 
-        loader.style.visibility = "visible"
+        loader.style.visibility = "visible";
         body.style.display = "none";
     } else {
         loader.style.display = "none";
@@ -50,7 +51,7 @@ const msgContainer = document.querySelector(".msg-container-content");
 const closeErrorBtn = document.querySelector(".msg-container-btn");
 
 // function to shor error on error container
-function displayMsg(msg, cls) {
+export function displayMsg(msg, cls) {
     msgContainer.classList.remove("hidden");
     closeErrorBtn.classList.remove("hidden");
     if (!msg) {
@@ -86,7 +87,7 @@ toTopBtn.onclick = function () {
 }
 
 // check for valid email
-function checkValidEmail(email) {
+export function checkValidEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }

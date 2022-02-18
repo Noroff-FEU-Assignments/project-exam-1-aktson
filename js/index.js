@@ -1,5 +1,10 @@
+import { getBlogByCategory } from "./generalFunctions/getBlogByCategory.js";
 import { getSearchResult } from "./generalFunctions/getSearchResult.js";
 import { baseUrl, postsEmbedUrl } from "./script.js";
+
+
+
+
 
 
 //async function to fetch about section content
@@ -15,6 +20,7 @@ async function getAboutPage() {
     aboutContainer.innerHTML += ` <h2>${result.title.rendered}</h2>
                                 <p>${result.content.rendered}</p> `
 }
+//calling functions
 getAboutPage();
 
 // carousel home section
@@ -30,7 +36,7 @@ async function getPosts(url) {
         const results = await response.json();
         creatHtml(results)
         getSearchResult(results)
-        console.log(results)
+
     }
     catch (error) {
         displayMsg(error, "error-msg")

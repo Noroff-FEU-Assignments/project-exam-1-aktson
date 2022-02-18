@@ -1,3 +1,5 @@
+import { displayMsg, baseUrl } from "./script.js";
+
 const title = document.querySelector("title");
 const resultContainer = document.querySelector(".blog-result");
 
@@ -21,6 +23,8 @@ async function getBlog() {
         const altText = result._embedded["wp:featuredmedia"][0].alt_text;
 
         title.innerText = `${result.title.rendered} | ${author.toUpperCase()}`
+
+        resultContainer.innerHTML = "";
 
         resultContainer.innerHTML = `
             <h1>${result.title.rendered}</h1>
@@ -120,7 +124,7 @@ async function getComments() {
     try {
         const response = await fetch(commentUrl);
         const results = await response.json();
-        console.log(results)
+
         results.forEach(result => {
             recentComntContainer.innerHTML += ` 
                     <div class="flex comment-header">

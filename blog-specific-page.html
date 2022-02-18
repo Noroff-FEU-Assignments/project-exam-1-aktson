@@ -72,7 +72,13 @@
     <!--  main section of page -->
     <main class="blog-specific">
       <!-- result of received blogs will show under blog-result section -->
-      <section class="flex blog-result"></section>
+      <section class="flex blog-result">
+        <div class="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
       <!-- section for recent comments -->
       <section>
         <h2>Recent comments</h2>
@@ -88,19 +94,7 @@
         </form>
       </section>
     </main>
-    <!-- aside gets post from choosen categories -->
-    <aside class="popular-blogs blog-specific-aside">
-      <h3>Browse posts by categories</h3>
-      <label for="category" class="hidden">Categories</label>
-      <select name="category" id="category">
-        <option value="">Choose from category</option>
-        <option value="37">Food</option>
-        <option value="38">Programming</option>
-        <option value="39">General</option>
-        <option value="44">Workout/Sport</option>
-      </select>
-      <div class="aside-content"></div>
-    </aside>
+
     <!-- site footer -->
     <footer>
       <!-- form to subscribe -->
@@ -137,12 +131,12 @@
     <div class="img-modal"></div>
     <button class="img-close-btn hidden"><i class="fas fa-times-circle"></i></button>
     <!-- loader for "on page load" where body is parent set relaive and loader  postions absolute-->
-    <div class="loader">
+    <!-- <div class="loader">
       <span></span>
       <span></span>
       <span></span>
-    </div>
-    <script src="js/script.js"></script>
-    <script src="js/blog-specific.js"></script>
+    </div> -->
+    <script src="js/blog-specific.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>
