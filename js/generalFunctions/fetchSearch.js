@@ -1,5 +1,23 @@
+import { displayMsg } from "../script.js";
+import { postsEmbedUrl } from "../settings.js";
+
+
+
+export async function fetchSearch() {
+    try {
+        const response = await fetch(postsEmbedUrl);
+        const results = await response.json();
+
+        getSearchResult(results)
+
+    }
+    catch (error) {
+        displayMsg(error, "error-msg")
+    }
+}
+
 // get search query async function
-export function getSearchResult(results) {
+function getSearchResult(results) {
 
     //search icon event listner to show searc results   
     const searchResultContainer = document.querySelector(".search-result-container");

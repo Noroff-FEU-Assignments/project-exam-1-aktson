@@ -1,4 +1,5 @@
-import { baseUrl } from "./script.js";
+
+import { baseUrl } from "./settings.js";
 
 const aboutContainer = document.querySelector(".about-sec");
 const aboutUrl = baseUrl + "pages/24";

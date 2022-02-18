@@ -1,10 +1,5 @@
-import { getBlogByCategory } from "./generalFunctions/getBlogByCategory.js";
-import { getSearchResult } from "./generalFunctions/getSearchResult.js";
-import { baseUrl, postsEmbedUrl } from "./script.js";
-
-
-
-
+import { baseUrl } from "./settings.js";
+import { getPosts } from "./getPosts.js";
 
 
 //async function to fetch about section content
@@ -30,23 +25,8 @@ const rightBtn = document.querySelector(".right-btn");
 //async function to fetch posts 
 const carouselContainer = document.querySelector(".carousel-container");
 
-async function getPosts(url) {
-    try {
-        const response = await fetch(url);
-        const results = await response.json();
-        creatHtml(results)
-        getSearchResult(results)
-
-    }
-    catch (error) {
-        displayMsg(error, "error-msg")
-        console.log(error)
-    }
-}
-getPosts(postsEmbedUrl);
-
 //function to create html and then call it inside async function
-function creatHtml(results) {
+function createHtmlCarousel(results) {
 
     carouselContainer.innerHTML = "";
     results.forEach(result => {
@@ -61,7 +41,7 @@ function creatHtml(results) {
         `;
     })
 }
-
+getPosts(createHtmlCarousel);
 
 // eventlistener for buttons to slide left or right  slider
 leftBtn.addEventListener("click", slideLeft);

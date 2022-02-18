@@ -1,4 +1,5 @@
-import { displayMsg, baseUrl } from "./script.js";
+import { displayMsg } from "./script.js";
+import { jwtApiToken, baseUrl } from "./settings.js";
 
 const title = document.querySelector("title");
 const resultContainer = document.querySelector(".blog-result");
@@ -54,7 +55,6 @@ async function getBlog() {
             imageModal.style.display = "none";
             closeImgBtn.style.display = "none";
         }
-
     }
     catch (error) {
         displayMsg(error, "error-msg");

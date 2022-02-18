@@ -1,4 +1,5 @@
 import { checkValidEmail, displayMsg } from "./script.js";
+import { jwtApiToken } from "./settings.js";
 
 
 const form = document.querySelector("#feedback-form");
