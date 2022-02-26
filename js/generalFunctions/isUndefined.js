@@ -1,7 +1,6 @@
-export function isUndefined(item) {
-    if (typeof item === undefined) {
-        return true;
-    } else {
-        return false
+export function isUndefined(alternativeItem, item) {
+    if (item) {
+        alternativeItem = item;
     }
+
 }

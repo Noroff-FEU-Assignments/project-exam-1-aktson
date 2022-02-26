@@ -1,5 +1,5 @@
-import { displayMsg } from "./script.js";
-import { jwtApiToken, baseUrl } from "./settings.js";
+import { displayMsg } from "../script.js";
+import { jwtApiToken, baseUrl } from "../settings.js";
 
 const title = document.querySelector("title");
 const resultContainer = document.querySelector(".blog-result");
@@ -17,19 +17,30 @@ async function getBlog() {
         const response = await fetch(idUrl);
         const result = await response.json();
 
-        const image = result.jetpack_featured_media_url;
+        let defaultImage = "../../images/not-found.png";
+
+
+        let image = result.jetpack_featured_media_url;
+        let altText = result._embedded["wp:featuredmedia"][0].alt_text;
+        console.log(result)
+
+
         const datePublished = new Date(result.date).toDateString();
         const dateModiefied = new Date(result.modified).toLocaleString();
         const author = result._embedded.author[0].name;
-        const altText = result._embedded["wp:featuredmedia"][0].alt_text;
+
 
         title.innerText = `${result.title.rendered} | ${author.toUpperCase()}`
+
+        if (image) {
+            defaultImage = image
+        }
 
         resultContainer.innerHTML = "";
 
         resultContainer.innerHTML = `
             <h1>${result.title.rendered}</h1>
-            <img src="${image}" alt="${altText}" class = "received-image" /> 
+           <img src="${defaultImage}" alt="${altText}" class = "received-image" /> 
             <p class= "date"><i class="fas fa-user-edit"></i>: <b>${author.toUpperCase()} </br></b> <i class="fas fa-calendar-alt"></i>: <b>${datePublished}</b></p>
             <p> ${result.content.rendered}</p>
             <p class= "date"> Last modified: <b>${dateModiefied}</b></p>

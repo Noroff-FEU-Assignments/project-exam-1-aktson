@@ -1,6 +1,6 @@
 import { baseUrl } from "../settings.js";
 import { displayMsg } from "../script.js";
-import { createBlogPageHtml } from "../blog.js";
+import { createBlogPageHtml } from "../pages/blog.js";
 import { getPosts } from "../getPosts.js";
 
 //get blogs by categories
@@ -16,13 +16,15 @@ export function getBlogByCategory() {
             const response = await fetch(catUrl);
             const results = await response.json();
 
-            if (!categorySelect.value) return;
+
 
             if (categorySelect.value === "") {
                 getPosts(createBlogPageHtml);
             }
+            if (!categorySelect.value) return;
 
             createBlogPageHtml(results);
+
 
         }
         catch (error) {

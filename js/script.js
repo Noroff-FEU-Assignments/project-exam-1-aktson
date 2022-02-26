@@ -59,7 +59,7 @@ closeErrorBtn.addEventListener("click", (e) => {
 })
 
 // after user succesfully sends data funtion under will remove message after 3 seconds that user can  continue to navigate or read
-function removeSuccessMsg() {
+export function removeSuccessMsg() {
     setTimeout(() => {
         msgContainer.classList.add("hidden");
     }, 5000)

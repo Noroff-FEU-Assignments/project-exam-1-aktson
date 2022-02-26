@@ -138,6 +138,7 @@ nav a {
 .nav-search-container {
   justify-content: space-evenly;
   gap: 20px;
+  align-items: center;
 }
 .search-container {
   position: relative;

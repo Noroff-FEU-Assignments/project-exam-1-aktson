@@ -1,22 +1,12 @@
-import { baseUrl } from "./settings.js";
-import { getPosts } from "./getPosts.js";
+
+import { getPosts } from "../getPosts.js";
+import { getPages } from "../getPages.js";
 
 
 //async function to fetch about section content
 
-const aboutContainer = document.querySelector(".about-homepage");
-const homePageUrl = baseUrl + "pages/2";
+getPages(2, ".about-homepage");
 
-async function getAboutPage() {
-    const response = await fetch(homePageUrl);
-    const result = await response.json();
-    aboutContainer.innerHTML = "";
-
-    aboutContainer.innerHTML += ` <h2>${result.title.rendered}</h2>
-                                <p>${result.content.rendered}</p> `
-}
-//calling functions
-getAboutPage();
 
 // carousel home section
 const leftBtn = document.querySelector(".left-btn");
@@ -30,11 +20,17 @@ function createHtmlCarousel(results) {
 
     carouselContainer.innerHTML = "";
     results.forEach(result => {
+        let image = result.jetpack_featured_media_url;
         const date = new Date(result.date).toDateString();
+        let defaultImage = "../../images/not-found.png";
+
+        if (image) {
+            defaultImage = image
+        }
 
         carouselContainer.innerHTML +=
             `<a href= "../blog-specific-page.html?id=${result.id}" class="blog">
-            <img src="${result.jetpack_featured_media_url}" alt="${result}" />
+            <img src="${defaultImage}" alt="${result}" />
             <p>${result.title.rendered}</p>
             <p class = "date"><i>${date}</i></p>
         </a>
