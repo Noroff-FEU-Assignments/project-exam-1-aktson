@@ -1,5 +1,6 @@
 import { displayMsg } from "../script.js";
 import { jwtApiToken, baseUrl } from "../settings.js";
+import { removeSuccessMsg } from "../script.js";
 
 const title = document.querySelector("title");
 const resultContainer = document.querySelector(".blog-result");
@@ -119,8 +120,9 @@ async function postCommentsApiCall() {
 
             displayMsg("Your comment successfully posted!!", "success-msg");
             form.reset();
-            // getComments();
+
             removeSuccessMsg();
+            location.reload();
         }
         catch (error) {
             displayMsg("", "error-msg")

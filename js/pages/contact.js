@@ -61,9 +61,6 @@ async function postFormData(e) {
             const formData = new FormData(form);
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    "Authorization": `Bearer ${jwtApiToken}`,
-                },
                 body: formData
             });
 
