@@ -130,13 +130,13 @@ async function postComments(e) {
 // get comments and show recent on page
 
 const recentComntContainer = document.querySelector(".recent-comments")
-async function getComments() {
-    try {
-        const response = await fetch(commentUrl);
-        const results = await response.json();
+    (async function () {
+        try {
+            const response = await fetch(commentUrl);
+            const results = await response.json();
 
-        results.forEach(result => {
-            recentComntContainer.innerHTML += ` 
+            results.forEach(result => {
+                recentComntContainer.innerHTML += ` 
                     <div class="flex comment-header">
                         <span><i class="fas fa-user-circle"></i></span>
                         <div>
@@ -145,11 +145,10 @@ async function getComments() {
                         </div>
                     </div>
                     <div class="user-comment"><p>${result.content.rendered}</p></div>`
-        })
-    }
-    catch (error) {
-        console.log(error)
-    }
-}
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    })();
 
-getComments()
