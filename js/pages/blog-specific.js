@@ -101,22 +101,20 @@ async function postComments(e) {
         const data = JSON.stringify({ author_name: nameInput.value, content: commentInput.value, status: "publish" })
         const options = {
             method: "POST",
+            body: data,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${jwtApiToken}`,
             },
-            body: data,
-
         }
 
         try {
             const response = await fetch(commentUrl, options);
 
             const results = await response.json();
-            console.log(results)
+
             form.reset();
             displayMsg("Your comment successfully posted!!", "success-msg");
-
 
             removeSuccessMsg();
             location.reload();
