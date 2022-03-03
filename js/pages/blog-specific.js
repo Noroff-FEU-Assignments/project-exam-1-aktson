@@ -23,7 +23,7 @@ async function getBlog() {
 
         let image = result.jetpack_featured_media_url;
         let altText = result._embedded["wp:featuredmedia"][0].alt_text;
-        console.log(result)
+
 
 
         const datePublished = new Date(result.date).toDateString();
@@ -86,40 +86,37 @@ const form = document.querySelector(".comment-form");
 
 form.addEventListener("submit", postComments);
 
-function postComments(e) {
-    e.preventDefault();
-    postCommentsApiCall();
-
-}
 
 const commentUrl = baseUrl + `comments?post=${blogId}`;
 
-async function postCommentsApiCall() {
+async function postComments(e) {
+    e.preventDefault();
 
     if (!nameInput.value || !commentInput.value) {
         displayMsg("Please enter all fields to comment", "error-msg");
     }
 
-    else if (nameInput.value && commentInput.value) {
-        try {
-            const response = await fetch(commentUrl, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer${jwtApiToken}`,
-                },
-                body: JSON.stringify({
+    if (nameInput.value && commentInput.value) {
 
-                    "author_name": nameInput.value,
-                    "content": commentInput.value,
-                    "status": "publish",
-                })
-            });
+        const data = JSON.stringify({ author_name: nameInput.value, content: commentInput.value, status: "publish" })
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${jwtApiToken}`,
+            },
+            body: data,
+
+        }
+
+        try {
+            const response = await fetch(commentUrl, options);
 
             const results = await response.json();
-
-            displayMsg("Your comment successfully posted!!", "success-msg");
+            console.log(results)
             form.reset();
+            displayMsg("Your comment successfully posted!!", "success-msg");
+
 
             removeSuccessMsg();
             location.reload();
