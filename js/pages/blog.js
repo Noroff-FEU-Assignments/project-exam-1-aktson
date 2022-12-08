@@ -26,7 +26,7 @@ export function createBlogPageHtml(results) {
 
 
         blogsContainer.innerHTML +=
-            `<a href= "../blog-specific-page.html?id=${result.id}" class="article " "> 
+            `<a href= "../blog-specific-page.html?id=${result.id}" class="article " > 
             <img src="${defaultImage} " alt="${altText}}" />
             <div>
                 <p class="date">${date}</p>
