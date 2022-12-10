@@ -45,7 +45,7 @@ You can start liver server for development with default installed live-server ex
 
 ## Contact
 
-[My Site](https://ankitsoni.netlify.app/)
+[My Site](https://ankitsoni.dev/)
 
 [My LinkedIn page](https://www.linkedin.com/in/ankit-soni-78177b1a/)
 
